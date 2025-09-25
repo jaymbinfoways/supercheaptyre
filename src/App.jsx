@@ -9,12 +9,14 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import AppointmentBanner from './components/AppointmentBanner';
 import Footer from './components/Footer';
+import ChatSupport from './components/ChatSupport';
 
 function App() {
   return (
     <div className="bg-white">
       <Header />
       <main>
+        
         <Hero />
         {/* <BuyTyre /> */}
         <FeaturedProducts />
@@ -23,6 +25,7 @@ function App() {
         <WhyChooseUs />
         <Testimonials />
         <AppointmentBanner />
+        <ChatSupport />
       </main>
       <Footer />
     </div>

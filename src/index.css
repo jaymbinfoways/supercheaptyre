@@ -29,3 +29,15 @@ html, body {
 .no-scroll {
   overflow-x: hidden !important;
 }
+
+.swiper-pagination-bullet-active{
+  background-color: #000 !important;
+}
+
+.testimonials-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d1d5db; /* default gray-300 */
+  opacity: 1;
+  margin: 0 6px !important; /* increase spacing */
+}
