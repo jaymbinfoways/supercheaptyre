@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { images, navLinks } from '../assets/data';
 import { Phone, User, Search, Menu, X, Moon } from 'lucide-react';
 import { HiMoon } from "react-icons/hi";
@@ -51,18 +52,23 @@ const Header = () => {
             <div className="hidden lg:block bg-[#000000] text-white mt-6 h-[10px]">
               <div className="container">
                 <nav className="flex gap-3 items-center justify-center">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      className={` text-base pb-3 xl:text-lg font-medium hover:text-primary px-5 transition-colors ${link.name === 'Home' ? 'text-primary border-b-2 border-primary' : ''}`}
-                    >
-                      <span className="inline-block">{link.name}</span>
-                      {/* {link.name === 'Home' && (
-                        <div className="h-1 w-full bg-primary mt-2 rounded-sm"></div>
-                      )} */}
-                    </a>
-                  ))}
+                  {navLinks.map((link) => {
+                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Products' ? '/products' : '#';
+                    return (
+                      <NavLink
+                        key={link.name}
+                        to={to}
+                        className={({ isActive }) =>
+                          `text-base pb-3 xl:text-lg font-medium px-5 transition-colors hover:text-primary ${
+                            isActive && (to !== '#' ? 'text-primary border-b-2 border-primary' : '')
+                          }`
+                        }
+                        end={link.name === 'Home'}
+                      >
+                        <span className="inline-block">{link.name}</span>
+                      </NavLink>
+                    );
+                  })}
                 </nav>
               </div>
             </div>
@@ -79,21 +85,28 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */
-      }
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-dark text-white absolute top-full left-0 w-full z-50 shadow-lg">
           <nav className="flex flex-col items-center space-y-3 sm:space-y-4 py-6 sm:py-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-base sm:text-lg font-medium hover:text-primary transition-colors py-2 px-4 rounded-lg hover:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const to = link.name === 'Home' ? '/' : link.name === 'Products' ? '/products' : '#';
+              return (
+                <NavLink
+                  key={link.name}
+                  to={to}
+                  className={({ isActive }) =>
+                    `text-base sm:text-lg font-medium transition-colors py-2 px-4 rounded-lg hover:bg-gray-800 ${
+                      isActive && (to !== '#' ? 'text-primary' : '')
+                    }`
+                  }
+                  end={link.name === 'Home'}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </NavLink>
+              );
+            })}
             <div className="flex items-center space-x-3 sm:space-x-4 pt-4 border-t border-gray-700 w-full justify-center">
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><Search size={18} className="sm:w-5 sm:h-5" /></button>
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><MdLocationPin size={18} className="sm:w-5 sm:h-5" /></button>

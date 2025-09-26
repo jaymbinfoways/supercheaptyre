@@ -25,7 +25,7 @@ export const images = {
 
 export const navLinks = [
   { name: 'Home', href: '#' },
-  { name: 'Products', href: '#' },
+  { name: 'Tyres', href: '#' },
   { name: 'Book An Appointment', href: '#' },
   { name: 'Services', href: '#' },
   { name: 'About Us', href: '#' },
@@ -37,103 +37,74 @@ export const featuredProducts = [
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },
   // Repeat for other products...
   {
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
-  },
-  {
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
-  },
-  {
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
-  },
-    {
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
-  },
-  {
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
     size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
-  },{
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: 'https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/0fef/9c08/e3352fab1d3a5ef0bedc427599f1a5f0?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=laHzIn1SNjtLaDfacsvOZtTtssHlHbCfdmeDWT6hg0jqE~3aYLXnxkTmRk73WYU3BcQjV-CXMHLd3XegRkSoPrFxDD2Ovtgbo6hL8sJ3diapuYkSioQXN6eNHM-sGgmm8AD5J4T4Ck8j1fB6UcaH5KpAnedFXpX9vFdc2XhOiAm1WrAACcG4falkjM1NmDaEAPrHllS9ltbM5sayb4E0C-BTu-TPW~kFVRzkOTluheNTg4TRob0LGkS49q0QfZkDzayO3TGHs--15lgBf99JyxVYlC0DhzLzhu4s6Kd0AT7JBuijEv9VFhDZGL2ahLXE4Q0ZzX8icN-BvU6tfN8L7w__',
+    image: '../src/assets/product.svg',
   },
 ];
 

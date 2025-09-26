@@ -1,34 +1,26 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import BuyTyre from './components/BuyTyre';
-import FeaturedProducts from './components/FeaturedProducts';
-import TireShowcase from './components/TireShowcase';
-import Brands from './components/Brands';
-import WhyChooseUs from './components/WhyChooseUs';
-import Testimonials from './components/Testimonials';
-import AppointmentBanner from './components/AppointmentBanner';
 import Footer from './components/Footer';
+import Home from './components/Home';
+import Tyre from './components/tyre/Tyre';
 import ChatSupport from './components/ChatSupport';
+import About from './components/About/About';
 
 function App() {
   return (
-    <div className="bg-white">
-      <Header />
-      <main>
-        
-        <Hero />
-        {/* <BuyTyre /> */}
-        <FeaturedProducts />
-        <TireShowcase />
-        <Brands />
-        <WhyChooseUs />
-        <Testimonials />
-        <AppointmentBanner />
+    <Router>
+      <div className="bg-[#F3F3F3]">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tyres" element={<Tyre />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
         <ChatSupport />
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </Router>
   );
 }
 
