@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { images } from '../assets/data';
 import { Facebook, Twitter, Instagram, Phone, Mail } from 'lucide-react';
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
@@ -66,8 +67,8 @@ const Footer = () => {
                 <div className="border-t border-white py-4 sm:py-6 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left space-y-3 sm:space-y-0">
                     <p className="font-plus-jakarta text-white text-sm sm:text-base">©2025 Copyright SupercheapTyre Dandenong</p>
                     <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 font-plus-jakarta text-gray-400 text-sm sm:text-base">
-                        <a href="/privacy" className="text-white transition-colors">Privacy & Policy</a>
-                        <a href="/terms" className="text-white transition-colors">Terms & Condition</a>
+                        <Link to="/privacy" className="text-white transition-colors">Privacy & Policy</Link>
+                        <Link to="/terms" className="text-white transition-colors">Terms & Condition</Link>
                     </div>
                 </div>
             </div>
