@@ -1,6 +1,6 @@
 import React from 'react';
 import { images } from '../assets/data';
-import img from '../../public/appointment.png';
+import img from '/home/appointment.png';
 
 const AppointmentBanner = () => {
     return (

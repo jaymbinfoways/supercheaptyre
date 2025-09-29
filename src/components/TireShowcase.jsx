@@ -29,12 +29,12 @@ const TireShowcase = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 flex-1">
               <TireCard
-                image="../../public/tirecard.svg"
+                image="/home/tirecard.svg"
                 name="CrossClimate"
                 price="$ 999"
               />
               <TireCard
-                image="../../public/tirecard.svg"
+                image="/home/tirecard.svg"
                 name="CrossClimate"
                 price="$ 999"
               />
@@ -52,7 +52,7 @@ const TireShowcase = () => {
               <div className="bg-dark rounded-xl p-3 sm:p-2 flex items-center gap-3 sm:gap-4 flex-1">
                 <div className="bg-white rounded-lg sm:rounded-xl p-2 h-24 sm:h-32">
                   <img
-                    src="../../public/tirecard2.svg"
+                    src="/home/tirecard2.svg"
                     alt="CrossClimate"
                     className="w-full h-full object-contain"
                   />
@@ -73,7 +73,7 @@ const TireShowcase = () => {
               <div className="bg-dark rounded-xl p-3 sm:p-2 flex items-center gap-3 sm:gap-4 flex-1">
                 <div className="bg-white rounded-lg sm:rounded-xl p-2  h-24 sm:h-32">
                   <img
-                    src="../../public/tirecard2.svg"
+                    src="/home/tirecard2.svg"
                     alt="CrossClimate"
                     className="w-full h-full object-contain"
                   />

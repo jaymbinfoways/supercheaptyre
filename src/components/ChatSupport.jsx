@@ -1,5 +1,5 @@
 import React from 'react';
-import chat from '../../public/chat.svg'
+import chat from '/home/chat.svg'
 const ChatSupport = () => {
     return (
         <div className='fixed bottom-4 right-4 bg-white border-2 border-[#FF0000] rounded-xl max-w-72 p-3 shadow-lg z-50'>

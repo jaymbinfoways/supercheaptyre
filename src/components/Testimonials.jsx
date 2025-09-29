@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import img from '../../public/true.png'
+import img from '/home/true.png'
 
 const SolidStar = ({ size = 20, className = '' }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
