@@ -13,12 +13,12 @@ export const images = {
   videoBg: "../../public/videobg.svg",
   appointmentBg: "../../public/appointmentbg.svg",
   payment: {
-    paypal: "../../public/paypal.svg",
-    visa: "../../public/visa.svg",
-    mastercard: "../../mastercard.svg",
-    amex: "../../amex.svg",
-    applePay:'../../apple-pay.png',
-    afterpay: "../../public/gpay.svg",
+    paypal: "/paypal.svg",
+    visa: "/visa.svg",
+    mastercard: "/mastercard.svg",
+    amex: "/amex.svg",
+    applePay:'/apple-pay.png',
+    afterpay: "/public/gpay.svg",
   },
 };
 
