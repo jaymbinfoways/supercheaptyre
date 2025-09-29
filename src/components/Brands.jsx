@@ -5,7 +5,7 @@ import img from '../assets/bglogo.png'
 
 const Brands = () => {
     // Duplicate brands to fill more space as in the design
-    const displayBrands = [...brands, ...brands.slice(0, 5)];
+    const displayBrands = [...brands, ...brands.slice(0,0)];
 
     return (
         <section className="py-12 sm:py-16 md:py-16 bg-white relative" >

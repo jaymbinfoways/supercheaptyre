@@ -9,10 +9,6 @@ import ExperienceExpertiseSection from './ExperienceExpertiseSection';
 export const About = () => {
   const decorativeImages = [
     {
-      src: "https://c.animaapp.com/mg0peqr0ivhhvg/img/postive-caring-relationships-teachers-1.png",
-      alt: "Postive caring",
-    },
-    {
       src: "https://c.animaapp.com/mg0peqr0ivhhvg/img/feature-banner-find-store.png",
       alt: "Feature banner find",
     },
@@ -163,13 +159,13 @@ export const About = () => {
         </div>
 
         {/* Large Group Image */}
-        <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-8">
+        {/* <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-8">
           <img
             className="w-full max-w-[1370px] h-[240px] sm:h-[320px] md:h-[380px] lg:h-[453px] object-cover rounded-2xl"
             alt={decorativeImages[5].alt}
             src={decorativeImages[5].src}
           />
-        </div>
+        </div> */}
 
       </div>
     </div>

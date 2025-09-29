@@ -1,7 +1,7 @@
 import React from 'react';
 import { images } from '../assets/data';
 import { ChevronDown } from 'lucide-react';
-import img from '../assets/tyrebanner1.png'
+import img from '../../public/tyrebanner1.png'
 import BuyTyre from './BuyTyre';
 
 const SearchForm = () => {

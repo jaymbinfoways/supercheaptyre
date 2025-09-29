@@ -1,7 +1,7 @@
 import React from 'react';
 import { images } from '../assets/data';
 import img from '../assets/Grouptyre.png'
-import bg from '../assets/bg.png'
+import bg from '../../public/bg.png'
 
 
 

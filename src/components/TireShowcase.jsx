@@ -29,12 +29,12 @@ const TireShowcase = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 flex-1">
               <TireCard
-                image="https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/7728/cadd/49fa9e587ced50270968c4fe44ee5963?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hV3LUhqeu-7GpeOsUz~eo0GQTRWWOIqVWNHuLfktaELs5D5vBylKgKeSElSY~fvyTvEE9gZUdpzcK36IqwukCmTUceO6n3j-6X3sa~uwgz~1TueUdI20Vgyg-xBBj-tLxEDL2Gz229D6XQY6-Rg211GGtfxd05LsFmkZaHywlqUQkIkO36Z78RdVk9Qm0c-CzupgO~84iCYOw9tqyVN4-GvcWvJ2yBvQJj3qg3GiQ7sCOwxv6GxN5wDI7Ho4hQVM~vFArhzXIIeAetpY5PG3hULVzUpxtjL2eS3niiW~tf10ELHENvpGVvdaAMXx07hkKjvoI4nIsvbbjU-~UIwBvw__"
+                image="../../public/tirecard.svg"
                 name="CrossClimate"
                 price="$ 999"
               />
               <TireCard
-                image="https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/7728/cadd/49fa9e587ced50270968c4fe44ee5963?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hV3LUhqeu-7GpeOsUz~eo0GQTRWWOIqVWNHuLfktaELs5D5vBylKgKeSElSY~fvyTvEE9gZUdpzcK36IqwukCmTUceO6n3j-6X3sa~uwgz~1TueUdI20Vgyg-xBBj-tLxEDL2Gz229D6XQY6-Rg211GGtfxd05LsFmkZaHywlqUQkIkO36Z78RdVk9Qm0c-CzupgO~84iCYOw9tqyVN4-GvcWvJ2yBvQJj3qg3GiQ7sCOwxv6GxN5wDI7Ho4hQVM~vFArhzXIIeAetpY5PG3hULVzUpxtjL2eS3niiW~tf10ELHENvpGVvdaAMXx07hkKjvoI4nIsvbbjU-~UIwBvw__"
+                image="../../public/tirecard.svg"
                 name="CrossClimate"
                 price="$ 999"
               />
@@ -52,7 +52,7 @@ const TireShowcase = () => {
               <div className="bg-dark rounded-xl p-3 sm:p-2 flex items-center gap-3 sm:gap-4 flex-1">
                 <div className="bg-white rounded-lg sm:rounded-xl p-2 h-24 sm:h-32">
                   <img
-                    src="https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/cdf4/11b7/b248ddd2cbc28bac45c8cecc1cb9397a?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=I5aZxXffu661M4sB3R6bsWF-maJiEJrtixGWqU65ux98jbc5aWuWr3R1wkDSCpKnbFVvfNiSfERJ5Sm8ezO84Wajrr9GzpbLwnmqUU5943vD3X~ZpOR87xdTd0aQiK55OzrYlR5woTxWdd7vgH9Awz3tK7r5U8F9F3lwyoUkRZhwZmvg4AjSlB72z~Zm~~2Qzv6wZUCubqfLjn4Jcfj8fIZYED0AnAncWsmTowHgeT2FxUw6gQUfCv1JzLj4ifs4ZcyoPNrTnruoA5MZig0pPRZw0xpdqA9heZFrZu7gJ2tSVlxm07-w3IJZqjr4z8xq6FFiQE6ye0W5m9jQZ03jSw__"
+                    src="../../public/tirecard2.svg"
                     alt="CrossClimate"
                     className="w-full h-full object-contain"
                   />
@@ -73,7 +73,7 @@ const TireShowcase = () => {
               <div className="bg-dark rounded-xl p-3 sm:p-2 flex items-center gap-3 sm:gap-4 flex-1">
                 <div className="bg-white rounded-lg sm:rounded-xl p-2  h-24 sm:h-32">
                   <img
-                    src="https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/cdf4/11b7/b248ddd2cbc28bac45c8cecc1cb9397a?Expires=1759104000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=I5aZxXffu661M4sB3R6bsWF-maJiEJrtixGWqU65ux98jbc5aWuWr3R1wkDSCpKnbFVvfNiSfERJ5Sm8ezO84Wajrr9GzpbLwnmqUU5943vD3X~ZpOR87xdTd0aQiK55OzrYlR5woTxWdd7vgH9Awz3tK7r5U8F9F3lwyoUkRZhwZmvg4AjSlB72z~Zm~~2Qzv6wZUCubqfLjn4Jcfj8fIZYED0AnAncWsmTowHgeT2FxUw6gQUfCv1JzLj4ifs4ZcyoPNrTnruoA5MZig0pPRZw0xpdqA9heZFrZu7gJ2tSVlxm07-w3IJZqjr4z8xq6FFiQE6ye0W5m9jQZ03jSw__"
+                    src="../../public/tirecard2.svg"
                     alt="CrossClimate"
                     className="w-full h-full object-contain"
                   />

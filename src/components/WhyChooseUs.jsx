@@ -5,7 +5,7 @@ const WhyChooseUs = () => {
     return (
         <section className="relative py-12 sm:py-16 md:py-20 bg-white">
             <div className="absolute inset-0">
-                <img src={images.whyChooseUsBg} alt="Mechanic working on a car" className="w-full h-full object-cover opacity-60 rounded-2xl border border-black" />
+                <img src={images.whyChooseUsBg} alt="Mechanic working on a car" className="w-full h-full object-cover opacity-100 rounded-2xl border border-black" />
             </div>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex justify-center mb-8 sm:mb-12 md:mb-16">

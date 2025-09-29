@@ -1,14 +1,14 @@
 import React from 'react';
 import { images } from '../assets/data';
-import img from '../assets/appointment.png';
+import img from '../../public/appointment.png';
 
 const AppointmentBanner = () => {
     return (
-        <section className="relative h-72 bg-gray-900 py-10 sm:py-12 md:py-16 bg-white/50">
+        <section className="relative h-72 bg-gray-900 py-10 sm:py-12 md:py-16 bg-white/10">
             <img 
                 src={images.appointmentBg} 
                 alt="Tires stacked" 
-                className="absolute inset-0 w-full h-full object-cover opacity-30"
+                className="absolute inset-0 w-full h-full object-cover opacity-100"
             />
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Tyre image anchored to container */}
