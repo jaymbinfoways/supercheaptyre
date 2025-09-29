@@ -6,7 +6,7 @@ const AboutUsHero= () => {
       <img
         className="absolute w-full h-full object-cover"
         alt="Tyre shop homepage"
-        src="https://c.animaapp.com/mg0peqr0ivhhvg/img/tyre-shop-homepage-720-w-420-h-5d46a023e4-3.png"
+        src="/about/aboutbg.svg"
       />
 
       <div className="absolute inset-0 flex items-center justify-center">

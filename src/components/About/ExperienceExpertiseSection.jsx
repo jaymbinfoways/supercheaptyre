@@ -5,8 +5,8 @@ const ExperienceExpertiseSection = () => {
   return (
     <section className="w-full h-full max-w-4xl mx-auto">
       <Card className="bg-white rounded-[20px] shadow-sm border-0 h-full flex">
-        <CardContent className="p-6 sm:p-8 md:p-10 lg:p-[60px] flex flex-col">
-          <header className="mb-6 sm:mb-8 md:mb-[60px]">
+        <CardContent className="p-6 sm:p-8 md:p-10 lg:p-[40px] flex flex-col">
+          <header className="mb-6 sm:mb-8 md:mb-[30px]">
             <h2 className="font-lexend font-medium text-black text-2xl sm:text-3xl md:text-[32px] leading-[1.2]">
               Experience &amp; Expertise
             </h2>

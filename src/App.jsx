@@ -6,6 +6,9 @@ import Home from './components/Home';
 import Tyre from './components/tyre/Tyre';
 import ChatSupport from './components/ChatSupport';
 import About from './components/About/About';
+import PrivacyPolicy from './components/FooterPage/PrivacyPolicy';
+import Terms from './components/FooterPage/Terms';
+import { ContactUs } from './components/ContactUs/Contact';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tyres" element={<Tyre />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<PrivacyPolicy/>} />
+          <Route path="/terms" element={<Terms/>} />
+          <Route path='/contactus' element={<ContactUs/>}/>
         </Routes>
         <Footer />
         <ChatSupport />

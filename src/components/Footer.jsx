@@ -41,7 +41,7 @@ const Footer = () => {
                             <h4 className="text-lg sm:text-xl font-semibold font-plus-jakarta mb-3 sm:mb-4">Contact Us</h4>
                             <ul className="space-y-2 sm:space-y-3 font-plus-jakarta text-white text-sm sm:text-base">
                                 <li className="flex items-center space-x-2 sm:space-x-3 justify-center sm:justify-start">
-                                    <LiaPhoneVolumeSolid size={16} className="sm:w-5 sm:h-5 text-white" />
+                                    <img src='/contactus/call.svg' size={16} className="sm:w-5 sm:h-5 text-white" />
                                     <span>1234567453</span>
                                 </li>
                                 <li className="flex items-center space-x-2 sm:space-x-3 justify-center sm:justify-start">
@@ -66,8 +66,8 @@ const Footer = () => {
                 <div className="border-t border-white py-4 sm:py-6 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left space-y-3 sm:space-y-0">
                     <p className="font-plus-jakarta text-white text-sm sm:text-base">©2025 Copyright SupercheapTyre Dandenong</p>
                     <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 font-plus-jakarta text-gray-400 text-sm sm:text-base">
-                        <a href="#" className="text-white transition-colors">Privacy & Policy</a>
-                        <a href="#" className="text-white transition-colors">Terms & Condition</a>
+                        <a href="/privacy" className="text-white transition-colors">Privacy & Policy</a>
+                        <a href="/terms" className="text-white transition-colors">Terms & Condition</a>
                     </div>
                 </div>
             </div>

@@ -53,7 +53,7 @@ const Header = () => {
               <div className="container">
                 <nav className="flex gap-3 items-center justify-center">
                   {navLinks.map((link) => {
-                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Products' ? '/products' : '#';
+                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Contact Us' ? '/contactus' : '#';
                     return (
                       <NavLink
                         key={link.name}
