@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { images, navLinks } from '../assets/data';
 import { Phone, User, Search, Menu, X, Moon } from 'lucide-react';
 import { HiMoon } from "react-icons/hi";
@@ -16,9 +16,9 @@ const Header = () => {
       <div className="bg-[#000000] text-white">
         <div className="container mx-auto px-3 sm:px-4 lg:px-8 flex items-start justify-between h-16 sm:h-20 md:h-[160px] py-0">
           {/* Logo */}
-          <a href="#" className="w-40 sm:w-52 md:w-64 lg:w-80 shrink-0">
+          <Link to="/" className="w-40 sm:w-52 md:w-64 lg:w-80 shrink-0">
             <img src={images.logo} alt="Supercheap Tyres Logo" className="block h-16 sm:h-28 md:h-32 lg:h-40 object-contain" />
-          </a>
+          </Link>
 
           <div className=''>
             <div className="bg-[#000000] text-white text-xs sm:text-sm">
@@ -53,7 +53,7 @@ const Header = () => {
               <div className="container">
                 <nav className="flex gap-3 items-center justify-center">
                   {navLinks.map((link) => {
-                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Contact Us' ? '/contactus' : link.name === 'Book An Appointment' ? '/appointment' : '#';
+                    const to = link.href || '#';
                     return (
                       <NavLink
                         key={link.name}
@@ -89,8 +89,8 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-dark text-white absolute top-full left-0 w-full z-50 shadow-lg">
           <nav className="flex flex-col items-center space-y-3 sm:space-y-4 py-6 sm:py-8">
-            {navLinks.map((link) => {
-              const to = link.name === 'Home' ? '/' : link.name === 'Products' ? '/products' : '#';
+                {navLinks.map((link) => {
+              const to = link.href || '#';
               return (
                 <NavLink
                   key={link.name}

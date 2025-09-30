@@ -23,12 +23,12 @@ export const images = {
 };
 
 export const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'Tyres', href: '#' },
-  { name: 'Book An Appointment', href: '#' },
+  { name: 'Home', href: '/' },
+  { name: 'Tyres', href: '/tyres' },
+  { name: 'Book An Appointment', href: '/appointment' },
   { name: 'Services', href: '#' },
-  { name: 'About Us', href: '#' },
-  { name: 'Contact Us', href: '#' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Contact Us', href: '/contactus' },
 ];
 
 export const featuredProducts = [
