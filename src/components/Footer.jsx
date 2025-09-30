@@ -27,12 +27,12 @@ const Footer = () => {
                     <div className="space-y-3 sm:space-y-4 text-center sm:text-left sm:space-x-32">
                         <h4 className="text-lg sm:text-xl font-semibold font-plus-jakarta mb-3 sm:mb-4 sm:mx-32">Quick Links</h4>
                         <ul className="space-y-2 sm:space-y-6 font-plus-jakarta text-white text-sm sm:text-base">
-                            <li><a href="#" className="hover:text-primary transition-colors">Home</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">Book Appointment</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">Services</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">My Invoice</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">Countact Us</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
+                            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+                            <li><Link to="/appointment" className="hover:text-primary transition-colors">Book Appointment</Link></li>
+                            <li><Link to="#" className="hover:text-primary transition-colors">Services</Link></li>
+                            <li><Link to="#" className="hover:text-primary transition-colors">My Invoice</Link></li>
+                            <li><Link to="/contactus" className="hover:text-primary transition-colors">Countact Us</Link></li>
+                            <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
                         </ul>
                     </div>
 

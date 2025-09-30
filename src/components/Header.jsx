@@ -46,14 +46,14 @@ const Header = () => {
                 </div>
               </div>
               <button className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><MdLocationPin size={20} className="xl:w-5 xl:h-5" /></button>
-              <button className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaShoppingCart size={20} className="xl:w-5 xl:h-5" /></button>
+              <NavLink to="/cart" className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaShoppingCart size={20} className="xl:w-5 xl:h-5" /></NavLink>
             </div>
             {/* Center Search */}
             <div className="hidden lg:block bg-[#000000] text-white mt-6 h-[10px]">
               <div className="container">
                 <nav className="flex gap-3 items-center justify-center">
                   {navLinks.map((link) => {
-                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Contact Us' ? '/contactus' : '#';
+                    const to = link.name === 'Home' ? '/' : link.name === 'Tyres' ? '/tyres' : link.name === 'About Us' ? '/about' : link.name === 'Contact Us' ? '/contactus' : link.name === 'Book An Appointment' ? '/appointment' : '#';
                     return (
                       <NavLink
                         key={link.name}
@@ -110,7 +110,7 @@ const Header = () => {
             <div className="flex items-center space-x-3 sm:space-x-4 pt-4 border-t border-gray-700 w-full justify-center">
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><Search size={18} className="sm:w-5 sm:h-5" /></button>
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><MdLocationPin size={18} className="sm:w-5 sm:h-5" /></button>
-              <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><FaShoppingCart size={18} className="sm:w-5 sm:h-5" /></button>
+              <NavLink to="/cart" className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><FaShoppingCart size={18} className="sm:w-5 sm:h-5" /></NavLink>
             </div>
           </nav>
         </div>

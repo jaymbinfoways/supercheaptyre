@@ -9,6 +9,9 @@ import About from './components/About/About';
 import PrivacyPolicy from './components/FooterPage/PrivacyPolicy';
 import Terms from './components/FooterPage/Terms';
 import { ContactUs } from './components/ContactUs/Contact';
+import ProductDetail from './components/TyreProductDetails/ProductDetails';
+import Cart from './components/Cart/Cart';
+import Appointment from './components/Appointment/Appointment';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy/>} />
           <Route path="/terms" element={<Terms/>} />
           <Route path='/contactus' element={<ContactUs/>}/>
+          <Route path='/productdetails' element={<ProductDetail/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/appointment' element={<Appointment/>}/>
         </Routes>
         <Footer />
         <ChatSupport />
