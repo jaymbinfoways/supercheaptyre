@@ -6,7 +6,7 @@ import { EnquirySection } from "./EnquirySection";
 export const ContactUs = () => {
   return (
     <div
-      className="relative w-full container mx-auto  min-h-screen bg-neutral-100 overflow-hidden"
+      className="relative w-full container mx-auto  min-h-screen bg-[#F5F5F5] overflow-hidden"
       data-model-id="1297:9685"
     >
       <img

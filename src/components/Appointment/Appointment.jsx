@@ -4,7 +4,7 @@ import CtaSection from './CtaSection';
 
 function Appointment() {
   return (
-    <div className="bg-light-gray overflow-x-hidden">
+    <div className="bg-[#F5F5F5] overflow-x-hidden">
       <main>
         <AppointmentSection />
         <CtaSection />

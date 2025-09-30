@@ -26,7 +26,7 @@ const TyreCard = ({
 
   return (
     <div
-      className="bg-white sm:p-6 p-3 space-y-20 relative  w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] group hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35)] transition-shadow cursor-pointer"
+      className="bg-white sm:p-6 p-3 space-y-20 relative  w-full max-w-[15rem] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] group hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35)] transition-shadow cursor-pointer"
       onClick={() => navigate('/productdetails')}
       role="button"
       tabIndex={0}

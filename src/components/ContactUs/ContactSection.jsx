@@ -49,15 +49,15 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section className="relative w-full h-[300px] sm:h-[420px] md:h-[448px] overflow-hidden">
+    <section className="relative w-full h-auto sm:h-[420px] md:h-[448px] overflow-visible">
       <img
         className="absolute inset-0 w-full h-full object-cover"
         alt="New WHAT TO LOOK FOR"
         src="/contactus/contactbg.svg"
       />
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
-        <h2 className="translate-y-[-1rem] animate-fade-in  [font-family:'Lexend',Helvetica] font-bold text-white text-[24px] sm:text-[32px] md:text-[40px] tracking-[0] leading-tight sm:leading-snug md:leading-normal text-center mb-6 md:mb-8">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 pt-6">
+        <h2 className="animate-fade-in [font-family:'Lexend',Helvetica] font-bold text-white text-[24px] sm:text-[32px] md:text-[40px] tracking-[0] leading-tight sm:leading-snug md:leading-normal text-center mb-6 md:mb-8 drop-shadow-md">
           Contact Supercheaptyres Dandenong
         </h2>
 
@@ -65,24 +65,24 @@ export const ContactSection = () => {
           {contactCards.map((card, index) => (
             <Card
               key={index}
-              className={`translate-y-[-1rem] animate-fade-in  w-full xs:w-[280px] sm:w-[300px] h-[180px] sm:h-[200px] md:h-[215px] bg-[#ff0009] rounded-[16px] sm:rounded-[18px] md:rounded-[20px] border border-[#bfbfbf] overflow-hidden`}
+              className={`translate-y-[-1rem] animate-fade-in w-full sm:w-[300px] h-auto min-h-[200px] sm:h-[200px] md:h-[215px] bg-[#ff0009] rounded-[16px] sm:rounded-[18px] md:rounded-[20px] border border-[#bfbfbf] overflow-hidden`}
               style={{ "--animation-delay": card.delay }}
             >
               <CardContent className="relative h-full p-4 sm:p-5">
                 <div className="flex justify-center">
                 <img
-                  className="object-cover"
+                  className="object-contain w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14"
                   alt="Contact icon"
                   src={card.icon}
                 />
                 </div>
 
                 <div className="flex flex-col items-center justify-center px-2.5 py-2 mt-2 sm:mt-[10px]">
-                  <div className="[font-family:'Lexend',Helvetica] font-semibold text-white text-lg sm:text-xl md:text-2xl tracking-[0] leading-snug sm:leading-normal mb-2 sm:mb-3 md:mb-4">
+                  <div className="[font-family:'Lexend',Helvetica] font-semibold text-white text-base sm:text-xl md:text-2xl tracking-[0] leading-snug sm:leading-normal mb-1 sm:mb-3 md:mb-4">
                     {card.title}
                   </div>
 
-                  <div className="[font-family:'Lexend',Helvetica] font-medium text-[#e7e6e6] text-sm sm:text-base text-center tracking-[0] leading-snug sm:leading-normal whitespace-pre-line">
+                  <div className="[font-family:'Lexend',Helvetica] font-medium text-[#e7e6e6] text-sm sm:text-base text-center tracking-[0] leading-snug sm:leading-normal whitespace-pre-line break-words">
                     {card.content}
                   </div>
                 </div>

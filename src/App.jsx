@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -13,9 +13,18 @@ import ProductDetail from './components/TyreProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
 import Appointment from './components/Appointment/Appointment';
 
+function ScrollToTopOnRouteChange() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+  return null;
+}
+
 function App() {
   return (
     <div className="bg-[#F3F3F3]">
+      <ScrollToTopOnRouteChange />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

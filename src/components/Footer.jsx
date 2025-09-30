@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { images } from '../assets/data';
 import { Facebook, Twitter, Instagram, Phone, Mail } from 'lucide-react';
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
-import { FaFacebookF,FaTwitter  } from "react-icons/fa";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { ImInstagram } from "react-icons/im";
 const Footer = () => {
     return (
@@ -18,7 +18,7 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-3 sm:space-x-4 justify-center sm:justify-start">
                             <a href="#" className="p-2 bg-white rounded-full"><FaFacebookF size={18} className="sm:w-5 sm:h-5 text-black" /></a>
-                            <a href="#" className="p-2 bg-white rounded-full"><FaTwitter  size={18} className="sm:w-5 sm:h-5 text-black" /></a>
+                            <a href="#" className="p-2 bg-white rounded-full"><FaTwitter size={18} className="sm:w-5 sm:h-5 text-black" /></a>
                             <a href="#" className="p-2 bg-white rounded-full"><ImInstagram size={18} className="sm:w-5 sm:h-5 text-black rounded-sm" /></a>
                         </div>
                     </div>
@@ -42,12 +42,19 @@ const Footer = () => {
                             <h4 className="text-lg sm:text-xl font-semibold font-plus-jakarta mb-3 sm:mb-4">Contact Us</h4>
                             <ul className="space-y-2 sm:space-y-3 font-plus-jakarta text-white text-sm sm:text-base">
                                 <li className="flex items-center space-x-2 sm:space-x-3 justify-center sm:justify-start">
-                                    <img src='/contactus/call.svg' size={16} className="sm:w-5 sm:h-5 text-white" />
-                                    <span>1234567453</span>
+                                    <img src='/contactus/call.svg' size={16} className="w-5 h-5 sm:w-5 sm:h-5 text-white" />
+                                    <a href="tel:1234567453" className="hover:underline">
+                                        1234567453
+                                    </a>
                                 </li>
                                 <li className="flex items-center space-x-2 sm:space-x-3 justify-center sm:justify-start">
                                     <Mail size={16} className="sm:w-5 sm:h-5" />
-                                    <span className="break-all">supercheaptyredandenong@gmail.com</span>
+                                    <a
+                                        href="mailto:supercheaptyredandenong@gmail.com"
+                                        className="break-all hover:underline"
+                                    >
+                                        supercheaptyredandenong@gmail.com
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -55,8 +62,8 @@ const Footer = () => {
                             <h4 className="text-lg sm:text-xl font-semibold font-lexend mb-3 sm:mb-4 ps-5">WE ACCEPT</h4>
                             <div className="grid grid-cols-3 gap-2 sm:gap-3 ps-5">
                                 {Object.values(images.payment).map((src, i) => (
-                                    <div key={i} className="bg-white rounded-md flex items-center justify-center w-[50px]">
-                                        <img src={src} alt="Payment method" className="max-h-full max-w-full object-contain rounded-lg"/>
+                                    <div key={i} className="bg-white rounded-md flex items-center justify-center w-14 h-10">
+                                        <img src={src} alt="Payment method" className="max-h-full max-w-full object-contain rounded-lg" />
                                     </div>
                                 ))}
                             </div>

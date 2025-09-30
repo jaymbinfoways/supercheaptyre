@@ -62,7 +62,7 @@ const SAMPLE_PRODUCTS = [
 const TyreGrid = ({ products }) => {
   const items = products && products.length ? products : SAMPLE_PRODUCTS;
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 sm:gap-10 lg:gap-12">
       {items.map((product) => (
         <TyreCard key={product.id} {...product} />
       ))}

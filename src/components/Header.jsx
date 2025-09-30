@@ -54,11 +54,7 @@ const Header = () => {
                 <nav className="flex gap-3 items-center justify-center">
                   {navLinks.map((link) => {
                     const to = link.href || '#';
-                    return to === '#' ? (
-                      <span key={link.name} className="text-base pb-3 xl:text-lg font-medium px-5 opacity-50 cursor-not-allowed">
-                        <span className="inline-block">{link.name}</span>
-                      </span>
-                    ) : (
+                    return  (
                       <NavLink
                         key={link.name}
                         to={to}
