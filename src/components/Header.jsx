@@ -54,7 +54,11 @@ const Header = () => {
                 <nav className="flex gap-3 items-center justify-center">
                   {navLinks.map((link) => {
                     const to = link.href || '#';
-                    return (
+                    return to === '#' ? (
+                      <span key={link.name} className="text-base pb-3 xl:text-lg font-medium px-5 opacity-50 cursor-not-allowed">
+                        <span className="inline-block">{link.name}</span>
+                      </span>
+                    ) : (
                       <NavLink
                         key={link.name}
                         to={to}
@@ -91,7 +95,11 @@ const Header = () => {
           <nav className="flex flex-col items-center space-y-3 sm:space-y-4 py-6 sm:py-8">
                 {navLinks.map((link) => {
               const to = link.href || '#';
-              return (
+              return to === '#' ? (
+                <span key={link.name} className="text-base sm:text-lg font-medium transition-colors py-2 px-4 rounded-lg opacity-50 cursor-not-allowed">
+                  {link.name}
+                </span>
+              ) : (
                 <NavLink
                   key={link.name}
                   to={to}
