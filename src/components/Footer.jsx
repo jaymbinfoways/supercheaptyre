@@ -31,7 +31,7 @@ const Footer = () => {
                             <li><Link to="/appointment" className="hover:text-primary transition-colors">Book Appointment</Link></li>
                             <li><Link to="#" className="hover:text-primary transition-colors">Services</Link></li>
                             <li><Link to="#" className="hover:text-primary transition-colors">My Invoice</Link></li>
-                            <li><Link to="/contactus" className="hover:text-primary transition-colors">Countact Us</Link></li>
+                            <li><Link to="/contactus" className="hover:text-primary transition-colors">Contact Us</Link></li>
                             <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
                         </ul>
                     </div>
@@ -43,7 +43,7 @@ const Footer = () => {
                             <ul className="space-y-2 sm:space-y-3 font-plus-jakarta text-white text-sm sm:text-base">
                                 <li className="flex items-center space-x-2 sm:space-x-3 justify-center sm:justify-start">
                                     <img src='/contactus/call.svg' size={16} className="w-5 h-5 sm:w-5 sm:h-5 text-white" />
-                                    <a href="tel:1234567453" className="hover:underline">
+                                    <a href="tel:1234567453">
                                         1234567453
                                     </a>
                                 </li>
@@ -51,7 +51,6 @@ const Footer = () => {
                                     <Mail size={16} className="sm:w-5 sm:h-5" />
                                     <a
                                         href="mailto:supercheaptyredandenong@gmail.com"
-                                        className="break-all hover:underline"
                                     >
                                         supercheaptyredandenong@gmail.com
                                     </a>
