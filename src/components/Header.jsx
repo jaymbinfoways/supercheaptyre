@@ -6,6 +6,8 @@ import { HiMoon } from "react-icons/hi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoMdSearch } from "react-icons/io";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,10 +44,10 @@ const Header = () => {
                   className="w-full h-10 xl:h-11 rounded-full bg-white text-dark placeholder-gray-500 pl-4 pr-11 focus:outline-none"
                 />
                 <div className="absolute right-1 top-1 bottom-1 aspect-square rounded-full bg-dark text-white grid place-items-center">
-                  <Search size={18} />
+                  <IoMdSearch size={24} />
                 </div>
               </div>
-              <button className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><MdLocationPin size={20} className="xl:w-5 xl:h-5" /></button>
+              <button className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaLocationDot size={20} className="xl:w-5 xl:h-5" /></button>
               <NavLink to="/cart" className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaShoppingCart size={20} className="xl:w-5 xl:h-5" /></NavLink>
             </div>
             {/* Center Search */}

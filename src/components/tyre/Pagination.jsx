@@ -21,7 +21,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           key={p}
           onClick={() => goToPage(p)}
           className={`text-sm sm:text-lg font-lexend transition-colors p-1 sm:p-2 ${
-            p === currentPage ? 'text-brand-red font-semibold' : 'hover:text-brand-red'
+            p === currentPage ? 'text-brand-red font-semibold underline text-black' : 'text-[#808080] hover:text-brand-red'
           }`}
         >
           {p}

@@ -7,7 +7,7 @@ const FilterSidebar = () => {
     { label: 'Size', key: 'size', placeholder: 'All Size' },
     { label: 'Type', key: 'type', placeholder: 'All Type' },
     { label: 'Rim Style', key: 'rimStyle', placeholder: 'All Rim Style' },
-    { label: 'Price', key: 'price', placeholder: 'All Price' },
+    { label: 'All Price', key: 'price', placeholder: 'All Price' },
   ];
 
   // Demo dropdown data
@@ -42,7 +42,7 @@ const FilterSidebar = () => {
     <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#D5D5D5] shadow-[0_5px_5px_-1px_rgba(0,0,0,0.25)] p-4 sm:p-6 lg:p-8 w-full sm:w-full lg:w-96 h-fit">
       <h2 className="text-xl sm:text-2xl font-lexend font-medium text-center mb-6 sm:mb-8">Filters</h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-1 grid-cols-1 gap-3">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-1 grid-cols-1 gap-6">
         {filterOptions.map((option) => (
           <div key={option.key} className="">
             <div className="text-xs sm:text-sm text-black mb-1"> 

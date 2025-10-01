@@ -311,7 +311,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
 
         <button
           type="submit"
-          className={`w-full text-white font-semibold py-3 rounded-lg transition-colors ${isFormReady ? 'bg-[#ED1C24] hover:bg-opacity-90' : 'bg-[#7E7E7E]'}`}
+          className={`w-full text-white font-semibold py-3 rounded-lg transition-colors ${isFormReady ? 'bg-[#ED1C24] hover:bg-opacity-90' : 'bg-[#ED1C24]'}`}
         >
           Confirm Booking
         </button>

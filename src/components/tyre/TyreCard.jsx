@@ -26,7 +26,7 @@ const TyreCard = ({
 
   return (
     <div
-      className="bg-white sm:p-6 p-3 space-y-10 relative  w-full max-w-[15rem] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] group hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35)] transition-shadow cursor-pointer"
+      className="bg-white sm:p-6 p-3 space-y-8 relative  w-full max-w-[15rem] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0px_0px_4px_0px_#00000040] group hover:shadow-[0px_0px_8px_1px_#00000040] transition-shadow cursor-pointer"
       onClick={() => navigate('/productdetails')}
       role="button"
       tabIndex={0}
@@ -45,14 +45,16 @@ const TyreCard = ({
         <div className="space-y-1">
           <h3 className="text-xl font-lexend font-medium text-[#ED1C24]">{brand}</h3>
           <p className="text-sm text-[#7A7A7A] font-roboto">{model}</p>
-          <p className="text-sm text-[#7A7A7A] font-roboto font-bold">{size}</p>
+          <p className="text-sm text-[#7A7A7A] font-roboto">
+            <span className="font-bold">Size:</span> <span className="font-normal">{size}</span>
+          </p>
         </div>
 
         <div className="flex items-center space-x-1 py-1">
           {renderStars(rating)}
         </div>
 
-        <div className="text-lg font-lexend font-medium text-black">
+        <div className="text-lg font-lexend font-medium text-black pb-5">
           ${price}
         </div>
       </div>

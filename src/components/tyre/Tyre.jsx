@@ -8,18 +8,18 @@ import HeroBanner from './HeroBanner';
 function Tyre() {
   // Source list to paginate. In real app, fetch from API.
   const allProducts = useMemo(() => [
-    { id: 1, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 999, rating: 2 },
-    { id: 2, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 999, rating: 4 },
-    { id: 3, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 999, rating: 4 },
-    { id: 4, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 999, rating: 4 },
-    { id: 5, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 999, rating: 4 },
-    { id: 6, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9994, rating: 4 },
-    { id: 7, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9995, rating: 4 },
-    { id: 8, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9999, rating: 4 },
-    { id: 9, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9998, rating: 4 },
-    { id: 10, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9959, rating: 4 },
-    { id: 11, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 9599, rating: 4 },
-    { id: 12, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: 'Size: 165/65R13', price: 5, rating: 4 }
+    { id: 1, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 999, rating: 2 },
+    { id: 2, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 999, rating: 4 },
+    { id: 3, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 999, rating: 4 },
+    { id: 4, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 999, rating: 4 },
+    { id: 5, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 999, rating: 4 },
+    { id: 6, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 9994, rating: 4 },
+    { id: 7, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 9995, rating: 4 },
+    { id: 8, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 9999, rating: 4 },
+    { id: 9, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: ' 165/65R13', price: 9998, rating: 4 },
+    { id: 10, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: '165/65R13', price: 9959, rating: 4 },
+    { id: 11, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: '165/65R13', price: 9599, rating: 4 },
+    { id: 12, image: '/tyre/tyrecardtyre.svg', brand: 'Achilles', model: 'Platinum 7 77H BSW', size: '165/65R13', price: 5, rating: 4 }
   ], []);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,7 +48,7 @@ function Tyre() {
                 <h2 className="text-2xl sm:text-3xl font-lexend font-regular text-black py-3 pb-8">
                   Tyres
                 </h2>
-                <p className="text-sm sm:text-base font-lexend font-regular text-[#7A7A7A] max-w-2xl">
+                <p className="text-sm sm:text-base font-lexend font-regular text-[#7A7A7A] max-w-xl">
                   The new attractive asymmetric tread design offers superior handling and braking performances on both dry and wet surfaces.
                 </p>
               </div>
