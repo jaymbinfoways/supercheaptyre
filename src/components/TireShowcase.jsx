@@ -18,7 +18,7 @@ const TireCard = ({ image, name, price }) => (
 const TireShowcase = () => {
   return (
     <section className="bg-dark py-10 sm:py-14 md:py-10 sm:h-[37rem]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           

@@ -14,7 +14,7 @@ const Header = () => {
     <header className="relative z-50">
       {/* Main Row */}
       <div className="bg-[#000000] text-white">
-        <div className="container mx-auto px-3 sm:px-4 lg:px-8 flex items-start justify-between h-16 sm:h-20 md:h-[160px] py-0">
+        <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 flex items-start justify-between h-16 sm:h-20 md:h-[160px] py-0">
           {/* Logo */}
           <Link to="/" className="w-40 sm:w-52 md:w-64 lg:w-80 shrink-0">
             <img src={images.logo} alt="Supercheap Tyres Logo" className="block h-16 sm:h-28 md:h-32 lg:h-40 object-contain" />
@@ -22,14 +22,14 @@ const Header = () => {
 
           <div className=''>
             <div className="bg-[#000000] text-white text-xs sm:text-sm">
-              <div className="container mx-auto flex justify-end items-center h-10 sm:h-12">
+              <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 flex justify-end items-center h-10 sm:h-12">
                 <div className="flex items-center gap-3">
 
                   <div className="flex items-center space-x-3">
                     <FaPhoneAlt size={14} className="sm:w-4 sm:h-4" />
                     <span className="text-xs sm:text-sm">(03) 9793 6190</span>
                   </div>
-                  <HiMoon size={20} className="ml-2" />
+                  {/* <HiMoon size={20} className="ml-2" /> */}
                 </div>
               </div>
             </div>

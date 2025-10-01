@@ -10,7 +10,7 @@ const HeroBanner = () => {
           className="w-full h-full object-cover opacity-80"
         />
       </div>
-      <div className="relative z-10 flex items-center justify-center h-64 sm:h-80 lg:h-96 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center justify-center h-64 sm:h-80 lg:h-96 px-3 sm:px-4 lg:px-8">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-roboto font-black text-white text-center leading-tight tracking-wide">
           Grip the road. Trust your drive
         </h1>

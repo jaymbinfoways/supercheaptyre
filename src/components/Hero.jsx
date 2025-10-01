@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/30 sm:bg-black/10"></div>
       </div>
 
-      <div className="container mx-auto px-3 sm:px-6 lg:px-0 relative z-10 h-full">
+        <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 relative z-10 h-full">
         <div className="grid lg:grid-cols-2 items-center h-full py-8 sm:py-12">
           <div className="relative text-center lg:text-left">
             {/* Left side content can be added here if needed */}
@@ -60,7 +60,7 @@ const Hero = () => {
       
       <div className="relative -mb-8 sm:-mb-12 md:-mb-16 lg:-mb-24 xl:-mb-28 z-50">
         {/* <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{backgroundImage: `url(${images.searchFormBg})`}}></div> */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 relative z-20">
             {/* <SearchForm /> */}
         </div>
         

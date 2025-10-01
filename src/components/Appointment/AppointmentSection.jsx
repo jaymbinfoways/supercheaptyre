@@ -322,7 +322,7 @@ const AppointmentSection = () => {
         <p className="text-xl text-[#7A7A7A]">Choose your preferred date and time, then provide your details to confirm</p>
       </div>
 
-      <div className="container mx-auto grid lg:grid-cols-10 gap-8 items-start">
+        <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-10 gap-8 items-start">
         {/* Left Column */}
         <div className="bg-white p-6 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] lg:col-span-6 lg:max-w-4xl">
           <h3 className="text-2xl font-medium mb-2">Choose a Date & Time</h3>

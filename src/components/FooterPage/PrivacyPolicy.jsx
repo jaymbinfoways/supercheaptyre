@@ -4,7 +4,7 @@ function PrivacyPolicy() {
     return (
         <div className="flex">
             
-             <main className="flex-grow container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative overflow-x-hidden">
+             <main className="flex-grow max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 py-8 sm:py-12 relative overflow-x-hidden">
              <img src={img} className='absolute right-0 -top-16 h-40 sm:h-96 max-w-full pointer-events-none select-none z-0'/>
                 <div className="relative z-10">
                     {/* Title */}

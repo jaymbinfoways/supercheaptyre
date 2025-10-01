@@ -4,7 +4,7 @@ import ProductInfo from './ProductInfo';
 const HeroSection = () => {
   return (
     <section className="w-full bg-[#f5f5f5] py-[12px] sm:py-[16px] md:py-[20px] lg:py-[24px]">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="mx-[25px] sm:mx-[35px] md:mx-[40px] lg:mx-[50px]">
           <div className="flex flex-col gap-[16px] sm:gap-[20px] md:gap-[24px] lg:gap-[28px] w-full">
             {/* Shop Tyres Header */}

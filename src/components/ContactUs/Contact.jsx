@@ -6,7 +6,7 @@ import { EnquirySection } from "./EnquirySection";
 export const ContactUs = () => {
   return (
     <div
-      className="relative w-full container mx-auto  min-h-screen bg-[#F5F5F5] overflow-hidden">
+      className="relative w-full max-w-screen-2xl mx-auto  min-h-screen bg-[#F5F5F5] overflow-hidden">
       <div className="absolute top-[31rem] left-1/2 -translate-x-1/2 w-full flex justify-center">
         <img
           className="w-[80%] max-w-[780px] h-auto object-contain"

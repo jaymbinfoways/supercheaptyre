@@ -52,7 +52,7 @@ const Testimonials = () => {
 
     return (
         <section className="bg-light py-12 sm:py-16 md:py-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
                 <div className="grid lg:grid-cols-2 grid-cols-1 gap-8 sm:gap-12 md:gap-16 items-center">
                     <div className="relative">
                         <h2 className="font-lexend text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-6 sm:mb-8 text-center lg:text-left">What Customers Say About Us</h2>

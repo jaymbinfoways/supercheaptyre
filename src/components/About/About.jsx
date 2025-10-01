@@ -31,9 +31,9 @@ export const About = () => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
     <div
-      className="relative w-full min-h-screen bg-[#F5F5F5] overflow-hidden"
+      className="relative w-full min-h-screen bg-[#F5F5F5] overflow-hidden "
     >
      
       {/* Main Content Sections */}
@@ -45,7 +45,7 @@ export const About = () => {
         </div>
 
         {/* Mission Statement Section with side image */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-2 lg:order-none lg:col-span-8">
               <div className="h-full w-full">
@@ -69,7 +69,7 @@ export const About = () => {
         </div>
 
         {/* Company Overview Section with side image */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">
@@ -93,7 +93,7 @@ export const About = () => {
         </div>
 
         {/* Video Section with side image */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12  items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-2 lg:order-none lg:col-span-8">
               <div className="h-full w-full">
@@ -117,7 +117,7 @@ export const About = () => {
         </div>
 
         {/* Experience Expertise Section with side image */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">

@@ -10,7 +10,7 @@ const AppointmentBanner = () => {
                 alt="Tires stacked" 
                 className="absolute inset-0 w-full h-full object-cover opacity-100"
             />
-            <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
                 {/* Tyre image anchored to container */}
                 <div className="pointer-events-none absolute bottom-0 -top-36 -right-0 sm:-right-10 sm:-top-36 sm:bottom-auto z-0">
                     <img 

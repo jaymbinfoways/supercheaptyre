@@ -8,7 +8,7 @@ import { ImInstagram } from "react-icons/im";
 const Footer = () => {
     return (
         <footer className="bg-dark text-white pt-12 sm:pt-16 md:pt-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-4">
                     {/* Logo and Social */}
                     <div className="space-y-4 sm:space-y-6 text-center sm:text-left">

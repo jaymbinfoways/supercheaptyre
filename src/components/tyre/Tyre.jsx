@@ -32,11 +32,10 @@ function Tyre() {
 
   return (
     <main className="bg-[#F3F3F3]">
-      <div className="container mx-auto">
+      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
         <BreadcrumbSection />
-
         {/* Main Content */}
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8">
+        <div className="py-6 sm:py-8">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Left Sidebar - Filters */}
             <div className="w-full lg:w-auto lg:flex-shrink-0">
@@ -58,7 +57,7 @@ function Tyre() {
             </div>
           </div>
         </div>
-        <div className="container mx-auto sm:ps-96">
+        <div className="sm:ps-96">
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
         </div>
         <HeroBanner />

@@ -53,7 +53,7 @@ const FeaturedProducts = () => {
 
     return (
         <section className="py-12 sm:py-16 md:py-20 bg-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-8 sm:mb-10 md:mb-12 text-center sm:text-left">Featured Products</h2>
                 <div className="relative overflow-visible">
                     <Swiper
