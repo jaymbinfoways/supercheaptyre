@@ -13,15 +13,15 @@ export const About = () => {
       alt: "Feature banner find",
     },
     {
-      src: "/about/missionstatementimg.svg",
+      src: "/about/missionstatementimg.jpg",
       alt: "Tyre shop homepage",
     },
     {
-      src: "/about/keyvalueimg.svg",
+      src: "/about/keyvalueimg.jpg",
       alt: "Hand selecting tyre",
     },
     {
-      src: "/about/experienceimg.svg",
+      src: "/about/experienceimg.png",
       alt: "Tire rack pirelli",
     },
     {
@@ -46,7 +46,7 @@ export const About = () => {
 
         {/* Mission Statement Section with side image */}
         <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-2 lg:order-none lg:col-span-8">
               <div className="h-full w-full">
                 <AboutUsContent />
@@ -54,7 +54,7 @@ export const About = () => {
             </div>
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">
-                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-2xl overflow-hidden">
+                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     width={1200}
@@ -70,10 +70,10 @@ export const About = () => {
 
         {/* Company Overview Section with side image */}
         <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">
-                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-2xl overflow-hidden">
+                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     width={1200}
@@ -94,7 +94,7 @@ export const About = () => {
 
         {/* Video Section with side image */}
         <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12  items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12  items-stretch gap-4 sm:gap-6  min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-2 lg:order-none lg:col-span-8">
               <div className="h-full w-full">
                 <AboutUsVideo />
@@ -102,7 +102,7 @@ export const About = () => {
             </div>
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">
-                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-2xl overflow-hidden">
+                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     width={1200}
@@ -118,10 +118,10 @@ export const About = () => {
 
         {/* Experience Expertise Section with side image */}
         <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
             <div className="order-1 lg:order-none lg:col-span-4 flex items-stretch">
               <div className="h-full w-full">
-                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-2xl overflow-hidden">
+                <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     width={1200}

@@ -3,7 +3,7 @@ import { Card, CardContent } from "./Card";
 
 const ExperienceExpertiseSection = () => {
   return (
-    <section className="w-full h-full max-w-4xl mx-auto">
+    <section className="w-full h-full mx-auto">
       <Card className="bg-white rounded-[20px] shadow-sm border-0 h-full flex">
         <CardContent className="p-6 sm:p-8 md:p-10 lg:p-[40px] flex flex-col">
           <header className="mb-6 sm:mb-8 md:mb-[30px]">

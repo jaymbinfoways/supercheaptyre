@@ -4,7 +4,7 @@ import { Card, CardContent } from './Card';
 const AboutUsContent = () => {
 
   return (
-    <div className="w-full h-full max-w-4xl mx-auto">
+    <div className="w-full h-full  mx-auto">
       <Card className="bg-white rounded-[20px] shadow-sm border-0 h-full flex flex-col">
         <CardContent className="p-6 sm:p-8 md:p-10 lg:p-[40px] flex flex-col">
           <h2 className="font-lexend font-medium text-black text-2xl sm:text-3xl md:text-[32px] leading-[1.2] mb-6 sm:mb-8 md:mb-[30px]">

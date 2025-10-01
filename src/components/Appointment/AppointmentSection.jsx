@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Calendar = ({ selectedDate, setSelectedDate }) => {
+const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -111,12 +111,15 @@ const Calendar = ({ selectedDate, setSelectedDate }) => {
           ))}
         </div>
       </div>
+      {showError && (
+        <p className="text-xs text-[#FF0000] mt-3">Please select a date.</p>
+      )}
       <p className="text-sm text-[#7A7A7A] mt-5">Appointments can be booked for 45 minutes only.</p>
     </div>
   );
 };
 
-const TimePicker = ({ selectedTime, setSelectedTime }) => {
+const TimePicker = ({ selectedTime, setSelectedTime, showError }) => {
   const timeSlots = [
     '9:00 AM - 9:45 AM', '9:45 AM - 10:30 AM', '10:30 AM - 11:15 AM', '11:15 AM - 12:00 PM',
     '12:00 PM- 12:45 PM', '12:45 PM - 1:30 PM', '1:30 PM - 2:15 PM', '2:15 PM - 3:00 PM',
@@ -144,11 +147,16 @@ const TimePicker = ({ selectedTime, setSelectedTime }) => {
           </button>
         );
       })}
+      {showError && (
+        <div className="col-span-2">
+          <p className="text-xs text-[#FF0000] mt-1">Please select a time slot.</p>
+        </div>
+      )}
     </div>
   );
 };
 
-const BookingForm = ({ selectedDate, selectedTime }) => {
+const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -190,8 +198,10 @@ const BookingForm = ({ selectedDate, selectedTime }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     markAllTouched();
+    if (onSubmitAttempt) {
+      onSubmitAttempt(true);
+    }
     if (!selectedDate || !selectedTime) {
-      alert('Please select a date and time before submitting.');
       return;
     }
     if (hasFieldErrors) {
@@ -214,8 +224,8 @@ const BookingForm = ({ selectedDate, selectedTime }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] w-full">
-      <h3 className="text-2xl font-medium mb-6">Your Details</h3>
+    <form onSubmit={handleSubmit} className="bg-white p-5 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] w-full">
+      <h3 className="flex items-center justify-center text-2xl font-medium mb-7">Your Details</h3>
       <div className="space-y-5">
         <div className="bg-[#F4F4F4] border border-border-gray rounded-lg p-4">
           <p className="text-xs text-[#FF0000] leading-relaxed tracking-wide">
@@ -301,8 +311,7 @@ const BookingForm = ({ selectedDate, selectedTime }) => {
 
         <button
           type="submit"
-          disabled={!isFormReady}
-          className={`w-full text-white font-semibold py-3 rounded-lg transition-colors ${isFormReady ? 'bg-[#ED1C24] hover:bg-opacity-90' : 'bg-[#7E7E7E] cursor-not-allowed'}`}
+          className={`w-full text-white font-semibold py-3 rounded-lg transition-colors ${isFormReady ? 'bg-[#ED1C24] hover:bg-opacity-90' : 'bg-[#7E7E7E]'}`}
         >
           Confirm Booking
         </button>
@@ -314,6 +323,7 @@ const BookingForm = ({ selectedDate, selectedTime }) => {
 const AppointmentSection = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   return (
     <section className="py-16 px-4">
@@ -325,11 +335,19 @@ const AppointmentSection = () => {
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-10 gap-8 items-start">
         {/* Left Column */}
         <div className="bg-white p-6 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] lg:col-span-6 lg:max-w-4xl">
-          <h3 className="text-2xl font-medium mb-2">Choose a Date & Time</h3>
+          <h3 className="text-2xl font-medium mb-7">Choose a Date & Time</h3>
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            <Calendar
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
+              showError={submitAttempted && !selectedDate}
+            />
             {selectedDate ? (
-              <TimePicker selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+              <TimePicker
+                selectedTime={selectedTime}
+                setSelectedTime={setSelectedTime}
+                showError={submitAttempted && !selectedTime}
+              />
             ) : (
               <div className="grid place-items-center h-full min-h-[240px]">
                 <p className="text-sm text-[#7A7A7A]">Please select a date to choose a time slot.</p>
@@ -340,7 +358,11 @@ const AppointmentSection = () => {
 
         {/* Right Column */}
         <div className="lg:col-span-4 lg:max-w-2xl">
-          <BookingForm selectedDate={selectedDate} selectedTime={selectedTime} />
+          <BookingForm
+            selectedDate={selectedDate}
+            selectedTime={selectedTime}
+            onSubmitAttempt={() => setSubmitAttempted(true)}
+          />
         </div>
       </div>
     </section>

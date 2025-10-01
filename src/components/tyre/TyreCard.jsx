@@ -26,7 +26,7 @@ const TyreCard = ({
 
   return (
     <div
-      className="bg-white sm:p-6 p-3 space-y-20 relative  w-full max-w-[15rem] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] group hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35)] transition-shadow cursor-pointer"
+      className="bg-white sm:p-6 p-3 space-y-10 relative  w-full max-w-[15rem] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto  rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] group hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35)] transition-shadow cursor-pointer"
       onClick={() => navigate('/productdetails')}
       role="button"
       tabIndex={0}
@@ -60,7 +60,7 @@ const TyreCard = ({
       {/* Add to Cart Button */}
       <div className=" flex items-center absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 justify-center space-x-4">
         <button
-          className="bg-[#ED1C24]  text-white rounded-lg py-3 px-8 font-lexend font-medium text-sm hover:bg-red-700 transition-colors"
+          className="bg-[#ED1C24]  text-white rounded-lg sm:py-3 py-2 sm:px-8 px-4 text-nowrap font-lexend font-medium text-sm hover:bg-red-700 transition-colors"
           onClick={(e) => { e.stopPropagation(); navigate('/cart'); }}
         >
           Add To Cart
