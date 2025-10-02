@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trash2, Plus, Minus } from 'lucide-react';
-
+import { RiDeleteBinLine } from "react-icons/ri";
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
@@ -11,14 +11,14 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
         <div className="flex flex-col justify-between">
           <div>
             <h3 className="font-lexend text-xl">{item.name}</h3>
-            <p className="font-lexend text-sm mt-1">Size: {item.size}</p>
-            <p className="font-roboto text-medium-gray text-base">{item.description}</p>
+            <p className=" flex font-lexend text-sm mt-1 text-[#8C8C8C]"><p className='text-[#000000]'>Size:</p> {item.size}</p>
+            <p className="font-roboto text-[#8C8C8C] text-base">{item.description}</p>
           </div>
-          <p className="font-satoshi font-bold text-2xl mt-2 sm:mt-0">${item.price}</p>
+          <p className="font-satoshi font-bold text-2xl mt-2 sm:mt-0 text-[#000000]">${item.price}</p>
         </div>
         <div className="flex flex-col justify-between items-start sm:items-end">
           <button onClick={() => onRemove(item.id)} className="text-primary hover:text-red-700">
-            <Trash2 size={24} />
+            <RiDeleteBinLine size={24} fill='red' className='' />
           </button>
           <div className="flex items-center gap-5 bg-[#F0F0F0] rounded-full px-5 py-3 mt-2">
             <button onClick={() => onQuantityChange(item.id, item.quantity - 1)} className="text-black">

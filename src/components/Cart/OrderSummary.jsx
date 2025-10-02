@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const SummaryRow = ({ label, value, isDiscount = false }) => (
   <div className="flex justify-between items-center">
-    <p className={`font-lexend text-xl ${isDiscount ? 'text-text-muted' : 'text-text-muted'}`}>{label}</p>
+    <p className={`font-lexend text-xl text-black/60`}>{label}</p>
     <p className={`font-lexend text-xl font-medium ${isDiscount ? 'text-primary font-satoshi font-bold' : 'text-black'}`}>
       {isDiscount ? '-' : ''}${value.toFixed(2)}
     </p>

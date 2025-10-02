@@ -14,7 +14,7 @@ function Terms() {
                     </h1>
 
                     {/* List */}
-                    <ol className="list-decimal list-inside space-y-2 sm:space-y-6 px-4 sm:px-10 md:px-20 text-black leading-relaxed text-sm sm:text-base">
+                    <ol className="max-w-5xl list-decimal list-inside space-y-2 sm:space-y-4 px-4 sm:px-10 md:px-12 text-black leading-relaxed text-sm sm:text-base">
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
                         <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</li>
                         <li>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</li>
@@ -25,7 +25,7 @@ function Terms() {
                         
                     </ol>
                 </div>
-                <img src={terms} className='absolute -right-0 top-52 h-40 sm:h-64 max-w-full'/>
+                <img src={terms} className='absolute -right-0 top-52 h-40 sm:h-72 max-w-full'/>
 
             </main>
         </div>

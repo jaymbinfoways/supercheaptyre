@@ -29,8 +29,8 @@ const CartPage = () => {
   };
 
   return (
-      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 py-12">
-      <h1 className="font-lexend font-medium text-3xl text-primary mb-8">Your Cart</h1>
+      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-8 py-5">
+      <h1 className="font-lexend font-medium text-3xl text-primary mb-7 px-3">Your Cart</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white rounded-2xl border border-border-gray p-6 space-y-6">

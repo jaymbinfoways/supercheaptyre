@@ -256,7 +256,7 @@ export const EnquirySection = () => {
                             </Label>
                             <Input
                                 placeholder="Enter your Name"
-                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] px-5 sm:px-[30px] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e]  [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
                             />
                         </div>
 
@@ -267,7 +267,7 @@ export const EnquirySection = () => {
                             </Label>
                             <Input
                                 placeholder="Enter your Mobile Number"
-                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] px-5 sm:px-[30px] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
                             />
                         </div>
 
@@ -278,7 +278,7 @@ export const EnquirySection = () => {
                             </Label>
                             <Input
                                 placeholder="Enter your Email"
-                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] px-5 sm:px-[30px] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
                             />
                         </div>
 
@@ -289,7 +289,7 @@ export const EnquirySection = () => {
                             </Label>
                             <Textarea
                                 placeholder="Enter your message here."
-                                className="h-28 sm:h-[125px] rounded-lg border border-solid border-[#7e7e7e] px-5 sm:px-[30px] py-3 [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f] resize-none"
+                                className="h-28 sm:h-[125px] rounded-lg border border-solid border-[#7e7e7e] py-3 [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f] resize-none"
                             />
                         </div>
 
