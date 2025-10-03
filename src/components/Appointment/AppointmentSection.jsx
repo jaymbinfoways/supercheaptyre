@@ -226,7 +226,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
   return (
     <form onSubmit={handleSubmit} className="bg-[#FEFEFF] p-6 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] w-full">
       <h3 className="flex items-center justify-center text-xl font-medium mb-4">Your Details</h3>
-      <div className="space-y-2">
+      <div className="space-y-3">
         <div className="bg-[#F4F4F4] border border-[#7E7E7E] rounded-lg p-4">
           <p className="text-xs text-[#FF0000] leading-relaxed tracking-wide">
             <span className="text-[#FF0000]">Selected Appointment:</span><br />
