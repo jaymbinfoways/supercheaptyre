@@ -44,10 +44,11 @@ const CartPage = () => {
                 {index < cartItems.length - 1 && <hr className="border-border-gray" />}
               </React.Fragment>
             ))}
+            <hr className="border-border-gray" />
+            <button className="w-full bg-primary text-white font-lexend font-semibold text-xl py-4 rounded-lg hover:bg-red-700 transition-colors">
+              Add Another Product
+            </button>
           </div>
-          <button className="w-full bg-primary text-white font-lexend font-semibold text-xl py-4 rounded-lg hover:bg-red-700 transition-colors">
-            Add Another Product
-          </button>
         </div>
         <div className="lg:col-span-1">
           <OrderSummary totals={totals} />

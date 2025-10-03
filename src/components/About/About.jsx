@@ -140,14 +140,19 @@ export const About = () => {
           </div>
         </div>
         
-          <div className="w-full relative flex justify-center px-8 py-8">
-          <img
-            className='w-full h-auto object-contain'
-            width={1200}
-            height={800}
-            alt={decorativeImages[4].alt}
-            src={decorativeImages[4].src}
-          />
+        <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
+          <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden bg-black">
+            <video
+              className="w-full h-full object-cover"
+              poster={decorativeImages[4].src}
+              controls
+              playsInline
+            >
+              <source src="/about/car.mp4" type="video/mp4" />
+              <source src="/about/car.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
 
       </div>

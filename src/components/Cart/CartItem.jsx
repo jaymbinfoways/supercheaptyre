@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trash2, Plus, Minus } from 'lucide-react';
-import { RiDeleteBinLine } from "react-icons/ri";
+import { RiDeleteBin5Fill, RiDeleteBinFill, RiDeleteBinLine } from "react-icons/ri";
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
@@ -18,7 +18,7 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
         </div>
         <div className="flex flex-col justify-between items-start sm:items-end">
           <button onClick={() => onRemove(item.id)} className="text-primary hover:text-red-700">
-            <RiDeleteBinLine size={24} fill='red' className='' />
+            <RiDeleteBinFill size={24} fill='red' className='' />
           </button>
           <div className="flex items-center gap-5 bg-[#F0F0F0] rounded-full px-5 py-3 mt-2">
             <button onClick={() => onQuantityChange(item.id, item.quantity - 1)} className="text-black">
