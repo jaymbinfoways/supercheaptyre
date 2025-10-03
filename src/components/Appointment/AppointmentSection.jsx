@@ -73,7 +73,7 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
 
   return (
     <div>
-      <div className="bg-white p-6 rounded-2xl shadow-calendar shadow-[8px_3px_22px_10px_#9696961C] w-full max-w-sm mx-auto">
+      <div className="bg-white p-6 rounded-2xl shadow-calendar shadow-[8px_3px_22px_10px_#9696961C] w-full max-w-80">
         <div className="flex justify-between items-center mb-4">
           <button
             onClick={() => navigateMonth('prev')}
@@ -114,7 +114,7 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
       {showError && (
         <p className="text-xs text-[#FF0000] mt-3">Please select a date.</p>
       )}
-      <p className="text-xs sm:text-sm text-[#7A7A7A] mt-3 sm:mt-5 px-2 sm:px-3 text-center sm:text-left leading-relaxed">Appointments can be booked for 45 minutes only.</p>
+      <p className="text-xs sm:text-sm text-[#7A7A7A] mt-3 text-nowrap sm:mt-5 text-center sm:text-left">Appointments can be booked for 45 minutes only.</p>
     </div>
   );
 };
@@ -128,7 +128,7 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError }) => {
   const disabledSlot = '1:30 PM - 2:15 PM';
 
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {timeSlots.map(time => {
         const isDisabled = time === disabledSlot;
         const isSelected = time === selectedTime;
@@ -137,18 +137,18 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError }) => {
             key={time}
             disabled={isDisabled}
             onClick={() => setSelectedTime(time)}
-            className={`p-3 text-sm rounded-md border border-[#7E7E7E] text-center transition-colors
+            className={`p-3 text-xs sm:text-sm rounded-md border border-[#7E7E7E] text-center transition-colors w-full min-h-[48px] flex items-center justify-center
               ${isDisabled ? 'bg-[#D7D7D7] text-text-gray cursor-not-allowed' : ''}
               ${isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : ''}
               ${!isDisabled && !isSelected ? 'bg-white hover:bg-[#D7D7D7]' : ''}
             `}
           >
-            {time}
+            <span className="whitespace-nowrap">{time}</span>
           </button>
         );
       })}
       {showError && (
-        <div className="col-span-2">
+        <div className="col-span-1 sm:col-span-2">
           <p className="text-xs text-[#FF0000] mt-1">Please select a time slot.</p>
         </div>
       )}
@@ -242,7 +242,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, firstName: true }))}
-            className={`w-full p-2 placeholder:text-[#6F6F6F] border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.firstName && touched.firstName ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
+            className={`w-full p-2 placeholder:text-[#6F6F6F] text-sm border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.firstName && touched.firstName ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
           />
           {errors.firstName && touched.firstName && (
             <p className="mt-1 text-xs text-[#FF0000]">{errors.firstName}</p>
@@ -257,7 +257,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, lastName: true }))}
-            className={`w-full p-2 placeholder:text-[#6F6F6F] border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.lastName && touched.lastName ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
+            className={`w-full p-2 placeholder:text-[#6F6F6F] text-sm border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.lastName && touched.lastName ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
           />
           {errors.lastName && touched.lastName && (
             <p className="mt-1 text-xs text-[#FF0000]">{errors.lastName}</p>
@@ -272,7 +272,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, email: true }))}
-            className={`w-full p-2 placeholder:text-[#6F6F6F] border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.email && touched.email ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
+            className={`w-full p-2 placeholder:text-[#6F6F6F] text-sm border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.email && touched.email ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
           />
           {errors.email && touched.email && (
             <p className="mt-1 text-xs text-[#FF0000]">{errors.email}</p>
@@ -287,7 +287,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
-            className={`w-full p-2 placeholder:text-[#6F6F6F] border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.phone && touched.phone ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
+            className={`w-full p-2 placeholder:text-[#6F6F6F] border text-sm border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.phone && touched.phone ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
           />
           {errors.phone && touched.phone && (
             <p className="mt-1 text-xs text-[#FF0000]">{errors.phone}</p>
@@ -302,7 +302,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
             value={remarks}
             onChange={(e) => setRemarks(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, remarks: true }))}
-            className={`w-full p-2 placeholder:text-[#6F6F6F] border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.remarks && touched.remarks ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
+            className={`w-full p-2 placeholder:text-[#6F6F6F] text-sm border border-[#7E7E7E] rounded-lg bg-transparent focus:outline-none focus:ring-1 ${errors.remarks && touched.remarks ? 'border-[#FF0000] focus:ring-[#FF0000]' : 'border-border-gray focus:ring-brand-red'}`}
           ></textarea>
           {errors.remarks && touched.remarks && (
             <p className="mt-1 text-xs text-[#FF0000]">{errors.remarks}</p>
@@ -334,22 +334,20 @@ const AppointmentSection = () => {
 
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-10 gap-5 items-start">
         {/* Left Column */}
-        <div className="bg-[#FDFDFE] p-6 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] lg:col-span-6 lg:max-w-4xl">
+        <div className="bg-[#FDFDFE] p-8 rounded-2xl shadow-card shadow-[0_4px_4px_0_#00000040] lg:col-span-6">
           <h3 className="text-2xl font-medium mb-7">Choose a Date & Time</h3>
-          <div className="grid md:grid-cols-2 gap-10 items-start">
+          <div className="grid md:grid-cols-2 items-start">
             <Calendar
               selectedDate={selectedDate}
               setSelectedDate={setSelectedDate}
               showError={submitAttempted && !selectedDate}
             />
             {selectedDate ? (
-              <div className='bg-[#FFFFFF] p-5 rounded-[20px] shadow-sm -mt-4'>
               <TimePicker
                 selectedTime={selectedTime}
                 setSelectedTime={setSelectedTime}
                 showError={submitAttempted && !selectedTime}
               />
-              </div>
             ) : (
               <div className="grid place-items-center h-full min-h-[240px]">
                 <p className="text-sm text-[#7A7A7A]">Please select a date to choose a time slot.</p>
