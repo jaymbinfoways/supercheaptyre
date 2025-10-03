@@ -4,16 +4,31 @@ import QuantityInput from './ui/QuantityInput';
 
 // Removed top-level await dynamic imports; using static imports above
 
-const ProductInfo = () => {
+const ProductInfo = (product) => {
   const [quantity, setQuantity] = useState(1);
 
+  // const specifications = [
+  //   { label: 'Brand :', value: 'Apollo', icon: '/productdetails/brand.svg' },
+  //   { label: 'Size :', value: '205/60R16', icon: '/productdetails/size.svg' },
+  //   { label: 'Tread type :', value: 'Type', icon: '/productdetails/tread.svg' },
+  //   { label: 'Stock :', value: '2', icon: '/productdetails/stock.svg' },
+  //   { label: 'Bolt pattern :', value: 'Bolt pattern', icon: '/productdetails/bolt.svg' },
+  //   { label: 'Offset :', value: 'offset', icon: '/productdetails/Offset.svg' }
+  // ];
   const specifications = [
-    { label: 'Brand :', value: 'Apollo', icon: '/productdetails/brand.svg' },
-    { label: 'Size :', value: '205/60R16', icon: '/productdetails/size.svg' },
-    { label: 'Tread type :', value: 'Type', icon: '/productdetails/tread.svg' },
-    { label: 'Stock :', value: '2', icon: '/productdetails/stock.svg' },
+    { label: 'Brand :', value: product.product.brand, icon: '/productdetails/brand.svg' },
+    {
+      label: 'Size :',
+      value: product.product.tyreSpecifications
+        ? `${product.product.tyreSpecifications.width}/${product.product.tyreSpecifications.profile}${product.product.tyreSpecifications.speedRating}${product.product.tyreSpecifications.diameter}`
+        : 'N/A',
+      icon: '/productdetails/size.svg'
+    },
+    { label: 'Stock :', value: product.product.stock, icon: '/productdetails/stock.svg' },
     { label: 'Bolt pattern :', value: 'Bolt pattern', icon: '/productdetails/bolt.svg' },
-    { label: 'Offset :', value: 'offset', icon: '/productdetails/Offset.svg' }
+    { label: 'Offset :', value: 'offset', icon: '/productdetails/Offset.svg' },
+    { label: 'Tread type :', value: product.product.tyreSpecifications?.pattern || 'N/A', icon: '/productdetails/tread.svg' },
+    
   ];
 
   const handleQuantityChange = (newQuantity) => {

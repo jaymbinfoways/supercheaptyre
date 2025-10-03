@@ -92,7 +92,7 @@ const SimilarProducts = () => {
                           {product?.description}
                         </p>
                         <p className="text-[14px] sm:text-[15px] md:text-[16px] leading-[17px] sm:leading-[18px] md:leading-[19px] font-['Roboto'] text-[#5a7184]">
-                          <span className="font-bold">SIZE: </span>
+                          <span className="font-bold text-[#888888]">Size: </span>
                           <span className="font-normal">{product?.size}</span>
                         </p>
                       </div>

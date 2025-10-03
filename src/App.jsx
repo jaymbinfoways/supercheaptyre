@@ -12,6 +12,8 @@ import { ContactUs } from './components/ContactUs/Contact';
 import ProductDetail from './components/TyreProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
 import Appointment from './components/Appointment/Appointment';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ScrollToTopOnRouteChange() {
   const location = useLocation();
@@ -33,12 +35,13 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy/>} />
         <Route path="/terms" element={<Terms/>} />
         <Route path='/contactus' element={<ContactUs/>}/>
-        <Route path='/productdetails' element={<ProductDetail/>}/>
+        <Route path='/productdetails/:id' element={<ProductDetail/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
       </Routes>
       <Footer />
       <ChatSupport />
+      <ToastContainer position="top-right" newestOnTop />
     </div>
   );
 }

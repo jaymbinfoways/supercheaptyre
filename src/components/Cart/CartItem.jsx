@@ -11,7 +11,7 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
         <div className="flex flex-col justify-between">
           <div>
             <h3 className="font-lexend text-xl">{item.name}</h3>
-            <p className=" flex font-lexend text-sm mt-1 text-[#8C8C8C]"><p className='text-[#000000]'>Size:</p> {item.size}</p>
+            <p className=" flex font-lexend text-sm mt-1 text-[#8C8C8C] gap-1"><p className='text-[#888888] font-bold'>Size:</p> {item.size}</p>
             <p className="font-roboto text-[#8C8C8C] text-base">{item.description}</p>
           </div>
           <p className="font-satoshi font-bold text-2xl mt-2 sm:mt-0 text-[#000000]">${item.price}</p>

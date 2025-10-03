@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { CreateContact } from "../../axios/axios";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 import * as LabelPrimitive from "@radix-ui/react-label";
@@ -116,6 +118,57 @@ const Textarea = React.forwardRef(function Textarea({ className, ...props }, ref
 });
 
 export const EnquirySection = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        mobile: "",
+        email: "",
+        message: "",
+    });
+    const [errors, setErrors] = useState({
+        name: "",
+        mobile: "",
+        email: "",
+        message: "",
+    });
+    const [submitting, setSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        // Clear error on change
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+    };
+
+    const validate = () => {
+        const nextErrors = { name: "", mobile: "", email: "", message: "" };
+        if (!formData.name.trim()) nextErrors.name = "Name is required";
+        if (!formData.mobile.trim()) nextErrors.mobile = "Mobile is required";
+        if (!formData.email.trim()) nextErrors.email = "Email is required";
+        if (!formData.message.trim()) nextErrors.message = "Message is required";
+        setErrors(nextErrors);
+        return !Object.values(nextErrors).some(Boolean);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!validate()) return;
+        try {
+            setSubmitting(true);
+            await CreateContact({
+                name: formData.name,
+                phone: formData.mobile,
+                email: formData.email,
+                message: formData.message,
+            });
+            toast.success("Successfully submitted", { position: "top-right" });
+            setFormData({ name: "", mobile: "", email: "", message: "" });
+        } catch (err) {
+            // no failure toast per requirement
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
     const contactInfo = [
         {
             icon: "/contactus/call.svg",
@@ -248,16 +301,22 @@ export const EnquirySection = () => {
 
                 {/* Contact Form */}
                 <div className="w-full max-w-[830px] translate-y-[-1rem] animate-fade-in  [--animation-delay:600ms]">
-                    <form className="flex flex-col gap-4 sm:gap-6">
+                    <form className="flex flex-col gap-4 sm:gap-6" onSubmit={handleSubmit} noValidate>
                         {/* Name Field */}
                         <div className="flex flex-col gap-2">
                             <Label className="[font-family:'Lexend',Helvetica] font-normal text-[#000000] text-base tracking-[0] leading-[normal]">
                                 Name
                             </Label>
                             <Input
+                                name="name"
                                 placeholder="Enter your Name"
                                 className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e]  [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                value={formData.name}
+                                onChange={handleChange}
                             />
+                            {errors.name ? (
+                                <p className="text-red-600 text-xs mt-1">{errors.name}</p>
+                            ) : null}
                         </div>
 
                         {/* Mobile Field */}
@@ -266,9 +325,15 @@ export const EnquirySection = () => {
                                 Mobile
                             </Label>
                             <Input
+                                name="mobile"
                                 placeholder="Enter your Mobile Number"
                                 className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                value={formData.mobile}
+                                onChange={handleChange}
                             />
+                            {errors.mobile ? (
+                                <p className="text-red-600 text-xs mt-1">{errors.mobile}</p>
+                            ) : null}
                         </div>
 
                         {/* Email Field */}
@@ -277,9 +342,15 @@ export const EnquirySection = () => {
                                 Email
                             </Label>
                             <Input
+                                name="email"
                                 placeholder="Enter your Email"
                                 className="h-12 sm:h-[52px] rounded-lg border border-solid border-[#7e7e7e] [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f]"
+                                value={formData.email}
+                                onChange={handleChange}
                             />
+                            {errors.email ? (
+                                <p className="text-red-600 text-xs mt-1">{errors.email}</p>
+                            ) : null}
                         </div>
 
                         {/* Message Field */}
@@ -288,9 +359,15 @@ export const EnquirySection = () => {
                                 Your Message
                             </Label>
                             <Textarea
+                                name="message"
                                 placeholder="Enter your message here."
                                 className="h-28 sm:h-[125px] rounded-lg border border-solid border-[#7e7e7e] py-3 [font-family:'Lexend',Helvetica] font-normal text-[#6f6f6f] text-sm tracking-[0] leading-[normal] placeholder:text-[#6f6f6f] resize-none"
+                                value={formData.message}
+                                onChange={handleChange}
                             />
+                            {errors.message ? (
+                                <p className="text-red-600 text-xs mt-1">{errors.message}</p>
+                            ) : null}
                         </div>
 
                         {/* reCAPTCHA */}
@@ -305,9 +382,14 @@ export const EnquirySection = () => {
                         </div>
 
                         {/* Submit Button */}
-                        <Button className="w-full h-12 sm:h-[50px] bg-[#ed1c24] hover:bg-[#d11920] text-white rounded-lg [font-family:'Lexend',Helvetica] font-semibold text-base tracking-[0] leading-[normal] transition-colors">
-                            Submit
+                        <Button
+                            type="submit"
+                            disabled={submitting}
+                            className="w-full h-12 sm:h-[50px] bg-[#ed1c24] hover:bg-[#d11920] text-white rounded-lg [font-family:'Lexend',Helvetica] font-semibold text-base tracking-[0] leading-[normal] transition-colors disabled:opacity-60"
+                        >
+                            {submitting ? "Submitting..." : "Submit"}
                         </Button>
+
                     </form>
                 </div>
             </div>

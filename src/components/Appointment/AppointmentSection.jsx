@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getTimeslot } from '../../axios/axios';
 
 const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -103,7 +104,7 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
               className={`w-8 h-8 rounded-full flex items-center justify-center font-sf-pro
               ${!day ? 'invisible' : ''}
               ${isDateSelected(day) ? 'bg-[#1F95AF] text-white' : ''}
-              ${isDateDisabled(day) ? 'text-gray-300 cursor-not-allowed' : 'text-brand-blue hover:bg-gray-100'}
+              ${isDateDisabled(day) ? 'text-gray-300 cursor-not-allowed' : 'text-black hover:bg-gray-100 hover:text-black'}
             `}
             >
               {day}
@@ -119,34 +120,29 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
   );
 };
 
-const TimePicker = ({ selectedTime, setSelectedTime, showError }) => {
-  const timeSlots = [
-    '9:00 AM - 9:45 AM', '9:45 AM - 10:30 AM', '10:30 AM - 11:15 AM', '11:15 AM - 12:00 PM',
-    '12:00 PM- 12:45 PM', '12:45 PM - 1:30 PM', '1:30 PM - 2:15 PM', '2:15 PM - 3:00 PM',
-    '3:00 PM - 3:45 PM', '3:45 PM - 4:30 PM', '4:30 PM - 5:15 PM', '5:15 PM - 6:00 PM'
-  ];
-  const disabledSlot = '1:30 PM - 2:15 PM';
-
+const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {timeSlots.map(time => {
-        const isDisabled = time === disabledSlot;
-        const isSelected = time === selectedTime;
-        return (
-          <button
-            key={time}
-            disabled={isDisabled}
-            onClick={() => setSelectedTime(time)}
-            className={`p-3 text-xs sm:text-sm rounded-md border border-[#7E7E7E] text-center transition-colors w-full min-h-[48px] flex items-center justify-center
-              ${isDisabled ? 'bg-[#D7D7D7] text-text-gray cursor-not-allowed' : ''}
-              ${isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : ''}
-              ${!isDisabled && !isSelected ? 'bg-white hover:bg-[#D7D7D7]' : ''}
-            `}
-          >
-            <span className="whitespace-nowrap">{time}</span>
-          </button>
-        );
-      })}
+      {loading ? (
+        <div className="col-span-1 sm:col-span-2 text-center text-sm text-[#7A7A7A]">Loading time slots...</div>
+      ) : (slots && slots.length > 0 ? (
+        slots.map((time) => {
+          const isSelected = time === selectedTime;
+          return (
+            <button
+              key={time}
+              onClick={() => setSelectedTime(time)}
+              className={`p-3 text-xs sm:text-sm rounded-md border border-[#7E7E7E] text-center transition-colors w-full min-h-[48px] flex items-center justify-center
+                ${isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : 'bg-white hover:bg-[#D7D7D7]'}
+              `}
+            >
+              <span className="whitespace-nowrap">{time}</span>
+            </button>
+          );
+        })
+      ) : (
+        <div className="col-span-1 sm:col-span-2 text-center text-sm text-[#7A7A7A]">No time slots available.</div>
+      ))}
       {showError && (
         <div className="col-span-1 sm:col-span-2">
           <p className="text-xs text-[#FF0000] mt-1">Please select a time slot.</p>
@@ -324,6 +320,34 @@ const AppointmentSection = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [slots, setSlots] = useState([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+
+  const formatTo12Hour = (time24) => {
+    // time24 in format "HH:MM"
+    const [hh, mm] = time24.split(':').map(Number);
+    const period = hh >= 12 ? 'PM' : 'AM';
+    const hour12 = ((hh + 11) % 12) + 1;
+    return `${hour12}:${String(mm).padStart(2, '0')} ${period}`;
+  };
+
+  useEffect(() => {
+    const fetchSlots = async () => {
+      try {
+        setLoadingSlots(true);
+        const res = await getTimeslot();
+        const generated = res?.data?.data?.[0]?.generatedSlots || [];
+        const visible = generated.filter(s => !s.isBreak);
+        const labels = visible.map(s => `${formatTo12Hour(s.startTime)} - ${formatTo12Hour(s.endTime)}`);
+        setSlots(labels);
+      } catch (_) {
+        setSlots([]);
+      } finally {
+        setLoadingSlots(false);
+      }
+    };
+    fetchSlots();
+  }, []);
 
   return (
     <section className="py-10 px-4">
@@ -347,6 +371,8 @@ const AppointmentSection = () => {
                 selectedTime={selectedTime}
                 setSelectedTime={setSelectedTime}
                 showError={submitAttempted && !selectedTime}
+                slots={slots}
+                loading={loadingSlots}
               />
             ) : (
               <div className="grid place-items-center h-full min-h-[240px]">

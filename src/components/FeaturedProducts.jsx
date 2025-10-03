@@ -20,11 +20,11 @@ const ProductCard = ({ product }) => (
   
       {/* Info */}
       <h3 className="text-lg sm:text-xl font-medium text-[#ED1C24] mb-2 underline text-start">{product.name}</h3>
-      <p className="text-text-secondary text-xs sm:text-sm whitespace-pre-line my-1 sm:my-2 leading-relaxed text-start">
+      <p className="text-text-secondary text-xs sm:text-sm whitespace-pre-line my-1 sm:my-1 leading-relaxed text-start">
         {product.description}
       </p>
-      <p className="text-text-secondary  text-xs sm:text-sm mb-12 text-start">
-        {product.size}
+      <p className="flex gap-1 text-text-secondary text-xs sm:text-sm mb-12 text-start">
+        <p className='font-bold text-[#5A7184]'>Size:</p>{product.size}
       </p>
   
       {/* Button (half in/out) */}

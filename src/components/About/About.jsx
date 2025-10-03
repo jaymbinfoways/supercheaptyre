@@ -141,9 +141,9 @@ export const About = () => {
         </div>
         
         <div className="w-full py-8 px-3 sm:px-4 lg:px-8">
-          <div className="w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[360px] rounded-[40px] overflow-hidden bg-black">
+          <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[453px] rounded-[40px] overflow-hidden bg-black">
             <video
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               poster={decorativeImages[4].src}
               controls
               playsInline

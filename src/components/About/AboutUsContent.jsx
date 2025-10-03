@@ -11,7 +11,7 @@ const AboutUsContent = () => {
             Company Overview
           </h2>
 
-          <p className="font-lexend font-normal text-[#6e6d6d] text-base sm:text-lg md:text-xl leading-7 md:leading-[30px] max-w-[741px]">
+          <p className="font-lexend text-[#6e6d6d] text-base sm:text-lg md:text-xl leading-7 md:leading-[30px] max-w-[741px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

@@ -35,59 +35,39 @@ export const featuredProducts = [
   {
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },
   // Repeat for other products...
   {
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },{
     name: 'Achilles',
     description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: '/home/product.svg',
-  },{
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: '/home/product.svg',
-  },{
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: '/home/product.svg',
-  },{
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
-    image: '/home/product.svg',
-  },{
-    name: 'Achilles',
-    description: '165/65R13 4\nPlatinum 7 77H BSW',
-    size: 'SIZE: 165/65R13',
+    size: '165/65R13',
     image: '/home/product.svg',
   },
 ];
