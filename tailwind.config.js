@@ -22,6 +22,8 @@ export default {
         roboto: ['"Roboto"', 'sans-serif'],
         'plus-jakarta': ['"Plus Jakarta Sans"', 'sans-serif'],
         'open-sans': ['"Open Sans"', 'sans-serif'],
+        'source-serif-regular': ['SourceSerif-regular', 'serif'],
+        'source-serif-bold': ['SourceSerif-bold', 'serif'],
       },
     },
   },

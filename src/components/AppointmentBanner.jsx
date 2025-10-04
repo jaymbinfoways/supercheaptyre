@@ -1,6 +1,6 @@
 import React from 'react';
 import { images } from '../assets/data';
-import img from '/home/appointment.png';
+import img from '/home/appointment.svg';
 import { Link } from 'react-router-dom';
 
 const AppointmentBanner = () => {

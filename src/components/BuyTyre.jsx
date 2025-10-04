@@ -93,7 +93,7 @@ const BuyTyre = () => {
                                     <img
                                         src={img}
                                         alt="Tyre"
-                                        className="relative -top-10 z-50 w-full h-auto object-contain drop-shadow-2xl max-w-[clamp(10rem,40vw,28rem)] sm:max-w-[clamp(12rem,45vw,30rem)] md:max-w-[clamp(14rem,46vw,32rem)] lg:max-w-[clamp(16rem,44vw,34rem)] xl:max-w-[clamp(20rem,40vw,36rem)]"
+                                        className="relative -top-20 z-50 w-full h-[580px] object-contain drop-shadow-2xl max-w-[clamp(10rem,40vw,28rem)] sm:max-w-[clamp(12rem,45vw,30rem)] md:max-w-[clamp(14rem,46vw,32rem)] lg:max-w-[clamp(16rem,44vw,34rem)] xl:max-w-[clamp(20rem,40vw,36rem)]"
                                     />
                                 </div>
                                 {/* <div className="relative">

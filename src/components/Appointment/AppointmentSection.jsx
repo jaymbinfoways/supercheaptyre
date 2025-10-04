@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { getTimeslot } from '../../axios/axios';
+import { toast } from 'react-toastify';
+import { getTimeslot, getGetHolidays, getAppointmentSlots } from '../../axios/axios';
 
-const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
+const Calendar = ({ selectedDate, setSelectedDate, showError, holidays = [] }) => {
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -69,7 +70,31 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
     if (!day) return true;
     const date = new Date(currentYear, currentMonth, day);
     const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    return date < todayDate;
+    
+    // Check if date is in the past
+    if (date < todayDate) return true;
+    
+    // Check if date is a holiday
+    const isHoliday = holidays.some(holiday => {
+      // Create date from holiday string and compare with calendar date
+      const holidayDate = new Date(holiday.date);
+      return holidayDate.getFullYear() === currentYear &&
+             holidayDate.getMonth() === currentMonth &&
+             holidayDate.getDate() === day;
+    });
+    
+    return isHoliday;
+  };
+
+  const isHolidayDate = (day) => {
+    if (!day) return false;
+    return holidays.some(holiday => {
+      // Create date from holiday string and compare with calendar date
+      const holidayDate = new Date(holiday.date);
+      return holidayDate.getFullYear() === currentYear &&
+             holidayDate.getMonth() === currentMonth &&
+             holidayDate.getDate() === day;
+    });
   };
 
   return (
@@ -104,7 +129,9 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
               className={`w-8 h-8 rounded-full flex items-center justify-center font-sf-pro
               ${!day ? 'invisible' : ''}
               ${isDateSelected(day) ? 'bg-[#1F95AF] text-white' : ''}
-              ${isDateDisabled(day) ? 'text-gray-300 cursor-not-allowed' : 'text-black hover:bg-gray-100 hover:text-black'}
+              ${isDateDisabled(day) && !isHolidayDate(day) ? 'text-gray-300 cursor-not-allowed' : ''}
+              ${isHolidayDate(day) ? 'bg-red-100 text-red-600 cursor-not-allowed border border-red-300' : ''}
+              ${!isDateDisabled(day) && !isHolidayDate(day) ? 'text-black hover:bg-gray-100 hover:text-black' : ''}
             `}
             >
               {day}
@@ -121,6 +148,20 @@ const Calendar = ({ selectedDate, setSelectedDate, showError }) => {
 };
 
 const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }) => {
+  // Show toast when error is displayed
+  useEffect(() => {
+    if (showError) {
+      toast.error("Please select a time slot.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+  }, [showError]);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {loading ? (
@@ -317,11 +358,14 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
 };
 
 const AppointmentSection = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Set today as default
   const [selectedTime, setSelectedTime] = useState(null);
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [slots, setSlots] = useState([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
+  const [holidays, setHolidays] = useState([]);
+  const [loadingHolidays, setLoadingHolidays] = useState(false);
+  const [timeSlotId, setTimeSlotId] = useState(null);
 
   const formatTo12Hour = (time24) => {
     // time24 in format "HH:MM"
@@ -331,23 +375,73 @@ const AppointmentSection = () => {
     return `${hour12}:${String(mm).padStart(2, '0')} ${period}`;
   };
 
+  // Fetch timeSlotId from timeslot API
+  const fetchTimeSlotId = async () => {
+    try {
+      const res = await getTimeslot();
+      const timeSlotData = res?.data?.data?.[0];
+      if (timeSlotData && timeSlotData._id) {
+        setTimeSlotId(timeSlotData._id);
+      }
+    } catch (error) {
+      console.error('Error fetching timeSlotId:', error);
+    }
+  };
+
+  // Fetch slots for selected date
+  const fetchSlotsForDate = async (date) => {
+    if (!date || !timeSlotId) return;
+    
+    try {
+      setLoadingSlots(true);
+      setSelectedTime(null); // Reset selected time when date changes
+      
+      // Format date as YYYY-MM-DD
+      const dateString = date.toISOString().split('T')[0];
+      
+      const res = await getAppointmentSlots(dateString, timeSlotId);
+      // const slotsData = res?.data?.data?.slots || [];
+      const slotsData = res?.data?.data?.slots || [];
+      
+      // Filter only available slots and format them
+      const availableSlots = slotsData
+        .filter(slot => slot.isAvailable)
+        .map(slot => `${formatTo12Hour(slot.startTime)} - ${formatTo12Hour(slot.endTime)}`);
+      
+      setSlots(availableSlots);
+    } catch (error) {
+      console.error('Error fetching slots for date:', error);
+      setSlots([]);
+    } finally {
+      setLoadingSlots(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchSlots = async () => {
+    const fetchHolidays = async () => {
       try {
-        setLoadingSlots(true);
-        const res = await getTimeslot();
-        const generated = res?.data?.data?.[0]?.generatedSlots || [];
-        const visible = generated.filter(s => !s.isBreak);
-        const labels = visible.map(s => `${formatTo12Hour(s.startTime)} - ${formatTo12Hour(s.endTime)}`);
-        setSlots(labels);
-      } catch (_) {
-        setSlots([]);
+        setLoadingHolidays(true);
+        const res = await getGetHolidays();
+        const holidayItems = res?.data?.data?.items || [];
+        setHolidays(holidayItems);
+      } catch (error) {
+        console.error('Error fetching holidays:', error);
+        setHolidays([]);
       } finally {
-        setLoadingSlots(false);
+        setLoadingHolidays(false);
       }
     };
-    fetchSlots();
+
+    fetchHolidays();
+    fetchTimeSlotId(); // Fetch timeSlotId on component mount
   }, []);
+
+  // Fetch slots when selectedDate or timeSlotId changes
+  useEffect(() => {
+    if (selectedDate && timeSlotId) {
+      fetchSlotsForDate(selectedDate);
+    }
+  }, [selectedDate, timeSlotId]);
 
   return (
     <section className="py-10 px-4">
@@ -365,6 +459,7 @@ const AppointmentSection = () => {
               selectedDate={selectedDate}
               setSelectedDate={setSelectedDate}
               showError={submitAttempted && !selectedDate}
+              holidays={holidays}
             />
             {selectedDate ? (
               <TimePicker

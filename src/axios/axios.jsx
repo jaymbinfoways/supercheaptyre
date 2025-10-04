@@ -13,13 +13,25 @@ export const getTyres = async (data) => {
 };
 
 export const getTyreById = async (id) => {
-    return axiosInstance.get(`/api/v1/product/${id}`);
+    return axiosInstance.get(`api/v1/product/${id}`);
 };
 
 export const CreateContact = async (payload) => {
-    return axiosInstance.post(`/api/v1/contact`, payload);
+    return axiosInstance.post(`api/v1/contact`, payload);
 };
 
 export const getTimeslot = async () => {
     return axiosInstance.get(`api/v1/timeslot`);
+};
+
+export const getGetHolidays = async () => {
+    return axiosInstance.get(`api/v1/holiday`);
+};
+
+export const getavailableslots = async () => {
+    return axiosInstance.get(`api/v1/appointment/slots`);
+};
+
+export const getAppointmentSlots = async (date, timeSlotId) => {
+    return axiosInstance.get(`api/v1/appointment/slots?date=${date}&timeSlotId=${timeSlotId}`);
 };

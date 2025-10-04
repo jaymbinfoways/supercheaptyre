@@ -5,7 +5,6 @@ import AboutUsVideo from './AboutUsVideo';
 import CompanyOverviewSection from './AboutCompanyOverviewSection';
 import ExperienceExpertiseSection from './ExperienceExpertiseSection';
 
-
 export const About = () => {
   const decorativeImages = [
     {
