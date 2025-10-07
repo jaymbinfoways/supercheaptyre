@@ -35,3 +35,7 @@ export const getavailableslots = async () => {
 export const getAppointmentSlots = async (date, timeSlotId) => {
     return axiosInstance.get(`api/v1/appointment/slots?date=${date}&timeSlotId=${timeSlotId}`);
 };
+
+export const gethomedata = async () => {
+    return axiosInstance.get(`api/v1/product/homedata`);
+};

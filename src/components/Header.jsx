@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { images, navLinks } from '../assets/data';
 import { Phone, User, Search, Menu, X, Moon } from 'lucide-react';
@@ -11,6 +11,23 @@ import { IoMdSearch } from "react-icons/io";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(() => Number(localStorage.getItem('cartCount') || 0));
+
+  useEffect(() => {
+    const onStorage = (e) => {
+      if (e.key === 'cartCount') {
+        setCartCount(Number(e.newValue || 0));
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    const interval = setInterval(() => {
+      setCartCount(Number(localStorage.getItem('cartCount') || 0));
+    }, 500);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <header className="relative z-50">
@@ -48,7 +65,14 @@ const Header = () => {
                 </div>
               </div>
               <button className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaLocationDot size={20} className="xl:w-5 xl:h-5" /></button>
-              <NavLink to="/cart" className="p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm"><FaShoppingCart size={20} className="xl:w-5 xl:h-5" /></NavLink>
+              <NavLink to="/cart" className="relative p-2 xl:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors shadow-sm">
+                <FaShoppingCart size={20} className="xl:w-5 xl:h-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[16px] text-center">
+                    {cartCount}
+                  </span>
+                )}
+              </NavLink>
             </div>
             {/* Center Search */}
             <div className="hidden lg:block bg-[#000000] text-white mt-6 h-[10px]">
@@ -116,7 +140,14 @@ const Header = () => {
             <div className="flex items-center space-x-3 sm:space-x-4 pt-4 border-t border-gray-700 w-full justify-center">
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><Search size={18} className="sm:w-5 sm:h-5" /></button>
               <button className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><MdLocationPin size={18} className="sm:w-5 sm:h-5" /></button>
-              <NavLink to="/cart" className="p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors"><FaShoppingCart size={18} className="sm:w-5 sm:h-5" /></NavLink>
+              <NavLink to="/cart" className="relative p-2 sm:p-3 rounded-full bg-white text-black hover:bg-gray-100 transition-colors">
+                <FaShoppingCart size={18} className="sm:w-5 sm:h-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold rounded-full px-1 py-0.5 min-w-[16px] text-center">
+                    {cartCount}
+                  </span>
+                )}
+              </NavLink>
             </div>
           </nav>
         </div>

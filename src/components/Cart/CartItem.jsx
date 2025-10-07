@@ -2,6 +2,7 @@ import React from 'react';
 import { Trash2, Plus, Minus } from 'lucide-react';
 import { RiDeleteBin5Fill, RiDeleteBinFill, RiDeleteBinLine } from "react-icons/ri";
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
+  console.log(item)
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <div className="flex-shrink-0 w-full sm:w-32 h-32 bg-black rounded-lg flex items-center justify-center">

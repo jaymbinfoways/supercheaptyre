@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Tyre from './components/tyre/Tyre';
-import ChatSupport from './components/ChatSupport';
 import About from './components/About/About';
 import Blog from './components/Blog/Blog';
 import PrivacyPolicy from './components/FooterPage/PrivacyPolicy';
@@ -42,7 +41,6 @@ function App() {
         <Route path='/appointment' element={<Appointment/>}/>
       </Routes>
       <Footer />
-      <ChatSupport />
       <ToastContainer position="top-right" newestOnTop />
     </div>
   );

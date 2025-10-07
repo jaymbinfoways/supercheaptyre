@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 import OrderSummary from './OrderSummary';
 import { cartData as initialCartData } from './mock';
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState(initialCartData);
+  const navigate = useNavigate();
+  const [cartItems, setCartItems] = useState(() => {
+    const raw = localStorage.getItem('cartItems');
+    return raw ? JSON.parse(raw) : [];
+  });
   const [totals, setTotals] = useState({ subtotal: 0, discount: 0, delivery: 15, total: 0 });
 
   useEffect(() => {
@@ -13,6 +18,8 @@ const CartPage = () => {
     const delivery = 15;
     const total = subtotal - discount + delivery;
     setTotals({ subtotal, discount, delivery, total });
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    localStorage.setItem('cartCount', String(cartItems.reduce((s, it) => s + (it.quantity || 1), 0)));
   }, [cartItems]);
 
   const handleQuantityChange = (id, newQuantity) => {
@@ -45,7 +52,7 @@ const CartPage = () => {
               </React.Fragment>
             ))}
             <hr className="border-border-gray" />
-            <button className="w-full bg-primary text-white font-lexend font-semibold text-xl py-4 rounded-lg hover:bg-red-700 transition-colors">
+            <button onClick={() => navigate('/tyres')} className="w-full bg-primary text-white font-lexend font-semibold text-xl py-4 rounded-lg hover:bg-red-700 transition-colors">
               Add Another Product
             </button>
           </div>

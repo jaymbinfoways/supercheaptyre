@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { ArrowRight } from 'lucide-react';
 
 const SummaryRow = ({ label, value, isDiscount = false }) => (
@@ -12,6 +14,17 @@ const SummaryRow = ({ label, value, isDiscount = false }) => (
 
 const OrderSummary = ({ totals }) => {
   const [paymentOption, setPaymentOption] = useState('full');
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    if (!cart.length) {
+      toast.error('Please add at least one item to cart');
+      navigate('/tyres');
+      return;
+    }
+    navigate('/appointment');
+  };
 
   return (
     <div className="bg-white rounded-2xl border border-border-gray p-6 space-y-6 sticky top-8">
@@ -58,7 +71,7 @@ const OrderSummary = ({ totals }) => {
         </div>
       </div>
 
-      <button className="w-full bg-primary text-white font-lexend font-semibold text-base py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700 transition-colors">
+      <button onClick={handleCheckout} className="w-full bg-primary text-white font-lexend font-semibold text-base py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700 transition-colors">
         Go to Checkout
         <ArrowRight size={24} />
       </button>

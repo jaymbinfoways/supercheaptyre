@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from './ui/Button';
 import QuantityInput from './ui/QuantityInput';
 
@@ -25,8 +26,8 @@ const ProductInfo = (product) => {
       icon: '/productdetails/size.svg'
     },
     { label: 'Stock :', value: product.product.stock, icon: '/productdetails/stock.svg' },
-    { label: 'Bolt pattern :', value: 'Bolt pattern', icon: '/productdetails/bolt.svg' },
-    { label: 'Offset :', value: 'offset', icon: '/productdetails/Offset.svg' },
+    // { label: 'Bolt pattern :', value: 'Bolt pattern', icon: '/productdetails/bolt.svg' },
+    // { label: 'Offset :', value: 'offset', icon: '/productdetails/Offset.svg' },
     { label: 'Tread type :', value: product.product.tyreSpecifications?.pattern || 'N/A', icon: '/productdetails/tread.svg' },
     
   ];
@@ -36,7 +37,28 @@ const ProductInfo = (product) => {
   };
 
   const handleAddToCart = () => {
-    window.location.href = '/cart';
+    const cartRaw = localStorage.getItem('cartItems');
+    const cart = cartRaw ? JSON.parse(cartRaw) : [];
+    const productId = product.product.id;
+    const existingIndex = cart.findIndex((ci) => ci.id === productId);
+    if (existingIndex >= 0) {
+      cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + quantity;
+    } else {
+      cart.push({
+        id: productId,
+        image: product.product.images?.[0] || '/cart/carttyre.svg',
+        name: product.product.name || product.product.brand || 'Tyre',
+        brand: product.product.brand,
+        size: product.product.tyreSpecifications
+          ? `${product.product.tyreSpecifications.width}/${product.product.tyreSpecifications.profile}${product.product.tyreSpecifications.speedRating}${product.product.tyreSpecifications.diameter}`
+          : 'N/A',
+        price: product.product.price || 0,
+        quantity,
+      });
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    localStorage.setItem('cartCount', String(cart.reduce((s, it) => s + (it.quantity || 1), 0)));
+    toast.success('Added to cart');
   };
 
   return (

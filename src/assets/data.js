@@ -26,8 +26,8 @@ export const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Tyres', href: '/tyres' },
   { name: 'Book An Appointment', href: '/appointment' },
-  { name: 'Services', href: '#' },
   { name: 'Blog', href: '/blog' },
+  // { name: 'Services', href: '#' },
   { name: 'About Us', href: '/about' },
   { name: 'Contact Us', href: '/contactus' },
 ];

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { getTimeslot, getGetHolidays, getAppointmentSlots } from '../../axios/axios';
@@ -167,17 +168,19 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }
       {loading ? (
         <div className="col-span-1 sm:col-span-2 text-center text-sm text-[#7A7A7A]">Loading time slots...</div>
       ) : (slots && slots.length > 0 ? (
-        slots.map((time) => {
-          const isSelected = time === selectedTime;
+        slots.map((slot) => {
+          const isSelected = slot.label === selectedTime;
+          const isUnavailable = slot.isAvailable === false;
           return (
             <button
-              key={time}
-              onClick={() => setSelectedTime(time)}
+              key={slot.label}
+              onClick={() => !isUnavailable && setSelectedTime(slot.label)}
+              disabled={isUnavailable}
               className={`p-3 text-xs sm:text-sm rounded-md border border-[#7E7E7E] text-center transition-colors w-full min-h-[48px] flex items-center justify-center
-                ${isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : 'bg-white hover:bg-[#D7D7D7]'}
+                ${isUnavailable ? 'bg-[#D7D7D7] text-[#7A7A7A] cursor-not-allowed' : (isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : 'bg-white hover:bg-[#D7D7D7]')}
               `}
             >
-              <span className="whitespace-nowrap">{time}</span>
+              <span className="whitespace-nowrap">{slot.label}</span>
             </button>
           );
         })
@@ -194,6 +197,7 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }
 };
 
 const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -242,6 +246,12 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
       return;
     }
     if (hasFieldErrors) {
+      return;
+    }
+    const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    if (!cart.length) {
+      toast.error('Please add at least one tyre to cart');
+      navigate('/tyres');
       return;
     }
     const payload = {
@@ -400,15 +410,15 @@ const AppointmentSection = () => {
       const dateString = date.toISOString().split('T')[0];
       
       const res = await getAppointmentSlots(dateString, timeSlotId);
-      // const slotsData = res?.data?.data?.slots || [];
       const slotsData = res?.data?.data?.slots || [];
       
-      // Filter only available slots and format them
-      const availableSlots = slotsData
-        .filter(slot => slot.isAvailable)
-        .map(slot => `${formatTo12Hour(slot.startTime)} - ${formatTo12Hour(slot.endTime)}`);
+      // Map all slots including unavailable ones with label and isAvailable
+      const allSlots = slotsData.map(slot => ({
+        label: `${formatTo12Hour(slot.startTime)} - ${formatTo12Hour(slot.endTime)}`,
+        isAvailable: !!slot.isAvailable
+      }));
       
-      setSlots(availableSlots);
+      setSlots(allSlots);
     } catch (error) {
       console.error('Error fetching slots for date:', error);
       setSlots([]);
@@ -424,6 +434,21 @@ const AppointmentSection = () => {
         const res = await getGetHolidays();
         const holidayItems = res?.data?.data?.items || [];
         setHolidays(holidayItems);
+        // Auto-select today unless it's a holiday; if holiday, pick next non-holiday
+        const today = new Date();
+        const isHoliday = (d) => {
+          return holidayItems.some(h => {
+            const hd = new Date(h.date);
+            return hd.getFullYear() === d.getFullYear() && hd.getMonth() === d.getMonth() && hd.getDate() === d.getDate();
+          });
+        };
+        let candidate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        let safety = 0;
+        while (isHoliday(candidate) && safety < 370) {
+          candidate.setDate(candidate.getDate() + 1);
+          safety += 1;
+        }
+        setSelectedDate(candidate);
       } catch (error) {
         console.error('Error fetching holidays:', error);
         setHolidays([]);

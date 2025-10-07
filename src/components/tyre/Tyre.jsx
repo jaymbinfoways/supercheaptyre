@@ -27,7 +27,7 @@ function Tyre() {
             id: item._id,
             image: getTyreImageUrl(item.images?.[0]), // fallback image
             brand: item.brand,
-            model: item.name,
+            name: item.name,
             size: item.tyreSpecifications
               ? `${item.tyreSpecifications.width}/${item.tyreSpecifications.profile}${item.tyreSpecifications.speedRating}${item.tyreSpecifications.diameter}`
               : "",
