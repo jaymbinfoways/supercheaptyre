@@ -27,6 +27,7 @@ export const navLinks = [
   { name: 'Tyres', href: '/tyres' },
   { name: 'Book An Appointment', href: '/appointment' },
   { name: 'Services', href: '#' },
+  { name: 'Blog', href: '/blog' },
   { name: 'About Us', href: '/about' },
   { name: 'Contact Us', href: '/contactus' },
 ];
@@ -140,3 +141,39 @@ export const testimonials = [
     rating: 4,
   },
   ];
+
+// Static blog content for the Blog page sections
+export const blogPosts = [
+  {
+    id: 1,
+    title: 'Choosing the Right Tyres for Your Vehicle',
+    excerpt: 'Understand tyre sizes, tread patterns, and what really matters for daily driving.',
+    image: '/home/tyrebanner1.png',
+    date: 'Aug 12, 2025',
+    author: 'Supercheap Tyres',
+  },
+  {
+    id: 2,
+    title: 'How Often Should You Rotate Tyres?',
+    excerpt: 'Rotation boosts tyre life and safety. See recommended intervals and patterns.',
+    image: '/home/true.png',
+    date: 'Aug 02, 2025',
+    author: 'Supercheap Tyres',
+  },
+  {
+    id: 3,
+    title: 'Summer vs All-Season Tyres: What to Know',
+    excerpt: 'Grip, durability, and cost—learn the tradeoffs to make a confident choice.',
+    image: '/home/product.svg',
+    date: 'Jul 20, 2025',
+    author: 'Supercheap Tyres',
+  },
+  {
+    id: 4,
+    title: 'Five Signs You Need New Tyres',
+    excerpt: 'From tread wear to sidewall damage, spot the red flags early.',
+    image: '/home/appointment.png',
+    date: 'Jul 01, 2025',
+    author: 'Supercheap Tyres',
+  },
+];
