@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { getTimeslot, getGetHolidays, getAppointmentSlots } from '../../axios/axios';
+import Loader from '../common/Loader';
 
 const Calendar = ({ selectedDate, setSelectedDate, showError, holidays = [] }) => {
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -486,7 +487,9 @@ const AppointmentSection = () => {
               showError={submitAttempted && !selectedDate}
               holidays={holidays}
             />
-            {selectedDate ? (
+            {loadingHolidays ? (
+              <div className="grid place-items-center h-full min-h-[240px]"><Loader label="Loading holidays..." /></div>
+            ) : selectedDate ? (
               <TimePicker
                 selectedTime={selectedTime}
                 setSelectedTime={setSelectedTime}

@@ -6,10 +6,12 @@ import Pagination from './Pagination';
 import HeroBanner from './HeroBanner';
 import { getTyres } from '../../axios/axios';
 import { getTyreImageUrl } from '../../Utils/Utils';
+import Loader from '../common/Loader';
 
 function Tyre() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   // Fetch data from API with axios
   useEffect(() => {
@@ -38,6 +40,9 @@ function Tyre() {
         setProducts(mappedProducts);
       } catch (error) {
         console.error("Error fetching tyres:", error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -52,6 +57,10 @@ function Tyre() {
     const start = (currentPage - 1) * pageSize;
     return products.slice(start, start + pageSize);
   }, [products, currentPage]);
+
+  if (loading) {
+    return <Loader label="Loading tyres..." />;
+  }
 
   return (
     <main className="bg-[#F3F3F3]">

@@ -39,3 +39,14 @@ export const getAppointmentSlots = async (date, timeSlotId) => {
 export const gethomedata = async () => {
     return axiosInstance.get(`api/v1/product/homedata`);
 };
+
+export const getblog = async (page, limit) => {
+    const params = {};
+    if (page !== undefined) params.page = page;
+    if (limit !== undefined) params.limit = limit;
+    return axiosInstance.get(`api/v1/blog`, { params });
+};
+
+export const getBlogById = async (id) => {
+    return axiosInstance.get(`api/v1/blog/${id}`);
+};

@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { gethomedata } from '../axios/axios';
 import { getTyreImageUrl } from '../Utils/Utils';
+import Loader from './common/Loader';
 
 const ProductCard = ({ product, onClick }) => (
     <div onClick={onClick} className="flex-shrink-0 w-64 sm:w-72 bg-light rounded-2xl sm:rounded-3xl shadow-lg text-center p-4 sm:p-6 mx-2 sm:mx-4 h-[25rem] relative cursor-pointer">
@@ -80,6 +81,10 @@ const FeaturedProducts = () => {
     };
 
     // Use class-based navigation to avoid ref timing issues
+
+    if (loading) {
+        return <Loader label="Loading featured products..." />;
+    }
 
     return (
         <section className="py-12 sm:py-16 md:py-20 bg-white">

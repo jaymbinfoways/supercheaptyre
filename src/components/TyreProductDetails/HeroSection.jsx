@@ -3,11 +3,13 @@ import ProductInfo from './ProductInfo';
 import { getTyreById } from '../../axios/axios';
 import { getTyreImageUrl } from '../../Utils/Utils';
 import { useParams } from 'react-router-dom';
+import Loader from '../common/Loader';
 
 const HeroSection = () => {
 
   const { id } = useParams(); // Get product id from URL
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -17,14 +19,20 @@ const HeroSection = () => {
         setProduct(response.data?.data);
       } catch (error) {
         console.error('Error fetching product:', error);
+        setProduct(null);
+      } finally {
+        setLoading(false);
       }
     };
 
     if (id) fetchProduct();
   }, [id]); // 👈 added id
 
+  if (loading) {
+    return <Loader label="Loading product..." />;
+  }
   if (!product) {
-    return <div className="text-center py-10">Loading product...</div>;
+    return <div className="text-center py-10">No product found.</div>;
   }
 
 

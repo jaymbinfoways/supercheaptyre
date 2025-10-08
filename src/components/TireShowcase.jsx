@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { gethomedata } from "../axios/axios";
 import { getTyreImageUrl } from "../Utils/Utils";
+import Loader from './common/Loader';
 
 const TireCard = ({ image, name, price, onClick }) => (
   <div onClick={onClick} className="bg-dark rounded-xl sm:rounded-2xl p-3 text-white w-full cursor-pointer">
@@ -49,6 +50,10 @@ const TireShowcase = () => {
     };
     fetchHomeData();
   }, []);
+
+  if (loading) {
+    return <Loader label="Loading home data..." />;
+  }
 
   return (
     <section className="bg-dark py-10 sm:py-14 md:py-10 sm:h-[37rem]">
