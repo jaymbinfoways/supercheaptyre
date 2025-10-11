@@ -14,6 +14,8 @@ import { ContactUs } from './components/ContactUs/Contact';
 import ProductDetail from './components/TyreProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
 import Appointment from './components/Appointment/Appointment';
+import Success from './components/Appointment/Success';
+import Cancel from './components/Appointment/Cancel';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -42,6 +44,8 @@ function App() {
         <Route path='/productdetails/:id' element={<ProductDetail/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
+        <Route path='/success' element={<Success/>}/>
+        <Route path='/cancel' element={<Cancel/>}/>
       </Routes>
       <Footer />
       <ToastContainer position="top-right" newestOnTop />

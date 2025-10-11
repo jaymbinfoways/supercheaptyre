@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { getTimeslot, getGetHolidays, getAppointmentSlots } from '../../axios/axios';
 import Loader from '../common/Loader';
+import {loadStripe} from '@stripe/stripe-js';
 
 const Calendar = ({ selectedDate, setSelectedDate, showError, holidays = [] }) => {
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -164,6 +165,14 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }
     }
   }, [showError]);
 
+  const handleTimeSelect = (slot) => {
+    if (slot.isAvailable !== false) {
+      setSelectedTime(slot.label);
+      // Store the selected slot ID in localStorage
+      localStorage.setItem('selectedSlotId', slot.slotId);
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {loading ? (
@@ -175,7 +184,7 @@ const TimePicker = ({ selectedTime, setSelectedTime, showError, slots, loading }
           return (
             <button
               key={slot.label}
-              onClick={() => !isUnavailable && setSelectedTime(slot.label)}
+              onClick={() => handleTimeSelect(slot)}
               disabled={isUnavailable}
               className={`p-3 text-xs sm:text-sm rounded-md border border-[#7E7E7E] text-center transition-colors w-full min-h-[48px] flex items-center justify-center
                 ${isUnavailable ? 'bg-[#D7D7D7] text-[#7A7A7A] cursor-not-allowed' : (isSelected ? 'bg-[#ED1C24] text-white border-brand-red' : 'bg-white hover:bg-[#D7D7D7]')}
@@ -217,6 +226,13 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
     return date.toLocaleDateString('en-US', options);
   };
 
+  // New function to format date for backend (ISO format)
+  const formatAppointmentDateForBackend = (date) => {
+    if (!date) return '';
+    // Return date in YYYY-MM-DD format for backend
+    return date.toISOString().split('T')[0];
+  };
+
   const appointmentString = selectedDate && selectedTime ?
     `${formatAppointmentDate(selectedDate)} at ${selectedTime}` :
     'No appointment selected';
@@ -237,7 +253,67 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
 
   const markAllTouched = () => setTouched({ firstName: true, lastName: true, email: true, phone: true, remarks: true });
 
-  const handleSubmit = (e) => {
+  const makePayment = async (payload) => {
+    try {
+      // Get cart items from localStorage
+      const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+      if (!cart.length) {
+        toast.error('Please add at least one tyre to cart');
+        navigate('/tyres');
+        return;
+      }
+
+      // Store appointment data in localStorage for use after payment
+      const appointmentData = {
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+        email: payload.email,
+        phone: payload.phone,
+        remarks: payload.remarks,
+        date: payload.appointment.date, // This is now in ISO format (YYYY-MM-DD)
+        time: payload.appointment.time
+      };
+      
+      localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
+      // Store cart items for use after payment
+      localStorage.setItem('cartItemsForOrder', JSON.stringify(cart));
+
+      // Transform cart data to match expected format
+      const transformedCart = cart.map(item => ({
+        name: item.name || item.title || 'Tyre Product',
+        price: item.price ? parseFloat(item.price) : 0,
+        quantity: item.quantity || 1,
+      }));
+
+      const body = { Product: transformedCart };
+
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/payment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to create payment session');
+      }
+
+      const session = await response.json();
+
+      // ✅ New Stripe redirect method
+      if (session.url) {
+        window.location.href = session.url; // Redirect user to Stripe Checkout
+      } else {
+        throw new Error('Invalid session URL received from server');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      toast.error(error.message || 'Payment initialization failed. Please try again.');
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     markAllTouched();
     if (onSubmitAttempt) {
@@ -249,12 +325,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
     if (hasFieldErrors) {
       return;
     }
-    const cart = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    if (!cart.length) {
-      toast.error('Please add at least one tyre to cart');
-      navigate('/tyres');
-      return;
-    }
+    
     const payload = {
       firstName: firstName.trim(),
       lastName: lastName.trim(),
@@ -262,13 +333,13 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
       phone: phone.trim(),
       remarks: remarks.trim(),
       appointment: {
-        date: formatAppointmentDate(selectedDate),
+        date: formatAppointmentDateForBackend(selectedDate), // Use ISO format for backend
         time: selectedTime
       }
     };
-    // eslint-disable-next-line no-console
-    console.log('Appointment submission:', payload);
-    alert(`Appointment submitted for ${payload.appointment.date} at ${payload.appointment.time}\nName: ${payload.firstName} ${payload.lastName}\nEmail: ${payload.email}\nPhone: ${payload.phone}`);
+    
+    // Make payment with the payload
+    await makePayment(payload);
   };
 
   return (
@@ -361,7 +432,7 @@ const BookingForm = ({ selectedDate, selectedTime, onSubmitAttempt }) => {
           type="submit"
           className={`w-full text-white font-semibold py-2.5 rounded-lg transition-colors ${isFormReady ? 'bg-[#ED1C24] hover:bg-opacity-90' : 'bg-[#ED1C24]'}`}
         >
-          Confirm Booking
+          Confirm Booking & Proceed to Payment
         </button>
       </div>
     </form>
@@ -393,6 +464,8 @@ const AppointmentSection = () => {
       const timeSlotData = res?.data?.data?.[0];
       if (timeSlotData && timeSlotData._id) {
         setTimeSlotId(timeSlotData._id);
+        // Store timeSlotId in localStorage
+        localStorage.setItem('timeSlotId', timeSlotData._id);
       }
     } catch (error) {
       console.error('Error fetching timeSlotId:', error);
@@ -416,7 +489,8 @@ const AppointmentSection = () => {
       // Map all slots including unavailable ones with label and isAvailable
       const allSlots = slotsData.map(slot => ({
         label: `${formatTo12Hour(slot.startTime)} - ${formatTo12Hour(slot.endTime)}`,
-        isAvailable: !!slot.isAvailable
+        isAvailable: !!slot.isAvailable,
+        slotId: slot.slotId // Store slotId for appointment creation
       }));
       
       setSlots(allSlots);

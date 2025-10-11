@@ -22,7 +22,7 @@ const BlogList = () => {
           const format = b.formate || 'card';
           const previewImage = format === 'carousel'
             ? getBlogImageUrl(b.images?.[0])
-            : getBlogImageUrl(b.items?.[0]?.image || b.images?.[0]);
+            : b.items?.[0]?.imageUrl || getBlogImageUrl(b.items?.[0]?.image || b.images?.[0]);
           const previewContent = b.content || b.items?.[0]?.content || '';
           return {
             id: b._id,

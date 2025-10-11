@@ -43,7 +43,7 @@ const CardGrid = ({ items }) => {
         <article key={idx} className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
           <div className="w-full h-48 sm:h-56 bg-gray-50 flex items-center justify-center p-2">
             {it.image ? (
-              <img src={getBlogImageUrl(it.image)} alt={`card-${idx}`} className="block max-h-full max-w-full object-contain" />
+              <img src={it.imageUrl || getBlogImageUrl(it.image)} alt={`card-${idx}`} className="block max-h-full max-w-full object-contain" />
             ) : null}
           </div>
           {it.content ? (
@@ -64,7 +64,7 @@ const AlternativeList = ({ items }) => {
           <div className={`${idx % 2 === 0 ? '' : 'md:order-2'}`}>
             <div className="w-full h-56 sm:h-64 bg-gray-50 rounded-xl flex items-center justify-center p-2">
               {it.image ? (
-                <img src={getBlogImageUrl(it.image)} alt={`alt-${idx}`} className="block max-h-full max-w-full object-contain" />
+                <img src={it.imageUrl || getBlogImageUrl(it.image)} alt={`alt-${idx}`} className="block max-h-full max-w-full object-contain" />
               ) : null}
             </div>
           </div>
@@ -73,6 +73,26 @@ const AlternativeList = ({ items }) => {
               <p className="text-sm sm:text-base text-gray-700">{it.content}</p>
             ) : null}
           </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const CenterList = ({ items }) => {
+  if (!items?.length) return null;
+  return (
+    <div className="space-y-6">
+      {items.map((it, idx) => (
+        <div key={idx} className="text-center">
+          <div className="w-full max-w-md mx-auto h-56 sm:h-64 bg-gray-50 rounded-xl flex items-center justify-center p-2">
+            {it.image ? (
+              <img src={it.imageUrl || getBlogImageUrl(it.image)} alt={`center-${idx}`} className="block max-h-full max-w-full object-contain" />
+            ) : null}
+          </div>
+          {it.content ? (
+            <p className="mt-4 text-sm sm:text-base text-gray-700">{it.content}</p>
+          ) : null}
         </div>
       ))}
     </div>
@@ -124,6 +144,7 @@ const BlogDetail = () => {
             {format === 'carousel' && <Carousel images={blog.images} />}
             {format === 'card' && <CardGrid items={blog.items} />}
             {format === 'alternative' && <AlternativeList items={blog.items} />}
+            {format === 'center' && <CenterList items={blog.items} />}
           </div>
 
           {blog.content ? (
